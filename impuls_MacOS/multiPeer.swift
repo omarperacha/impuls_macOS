@@ -54,7 +54,7 @@ class AudioService : NSObject {
     }()
     
     func send(distance : String) {
-        NSLog("%@", "sendColor: \(distance) to \(session.connectedPeers.count) peers")
+        NSLog("%@", "sendDistance: \(distance) to \(session.connectedPeers.count) peers")
         
         if session.connectedPeers.count > 0 {
             do {
@@ -97,6 +97,7 @@ extension AudioService : MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         NSLog("%@", "lostPeer: \(peerID)")
+        conductor.disconnectOscillatros()
     }
     
 }
