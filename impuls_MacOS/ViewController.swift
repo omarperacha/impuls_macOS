@@ -8,10 +8,18 @@
 
 import Cocoa
 
+let conductor = AudioManager()
+
 class ViewController: NSViewController {
+    
+    let audioService = AudioService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        audioService.delegate = self
+        conductor.setup()
 
         // Do any additional setup after loading the view.
     }
@@ -23,5 +31,21 @@ class ViewController: NSViewController {
     }
 
 
+}
+
+extension ViewController : AudioServiceDelegate {
+    
+    func connectedDevicesChanged(manager: AudioService, connectedDevices: [String]) {
+        OperationQueue.main.addOperation {
+            print(connectedDevices)
+        }
+    }
+    
+    func distanceChanged(manager: AudioService, distance: String) {
+        OperationQueue.main.addOperation {
+            conductor.updateAmp(input: distance)
+        }
+    }
+    
 }
 
