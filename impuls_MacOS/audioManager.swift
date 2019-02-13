@@ -15,7 +15,7 @@ class AudioManager {
     private let midi = AudioKit.midi
     var audioKitRunning = false
     
-    let midiNotes = [36, 68]
+    var midiNotes = [Int]()
     let numOscs = 5
     var oscillators = [AKOscillator]()
     var mixer = AKMixer()
@@ -32,6 +32,7 @@ class AudioManager {
         midi.openOutput()
         
         for i in 0 ..< numOscs {
+            midiNotes.append(36 + i*8)
             oscillators.append(AKOscillator())
             oscillators[i].frequency = 220 + i*220
             oscillators[i].amplitude = 0
@@ -57,13 +58,9 @@ class AudioManager {
             return
         }
         
-        var oscToUpdate = oscillators[0]
-        var note = midiNotes[0]
+        let alphabet = "abcdefghijklmnopqrstuvwxyz"
         
-        if input.first == "b" {
-            oscToUpdate = oscillators[1]
-            note = midiNotes[1]
-        }
+        let idx = alphabet.distance(from: alphabet.startIndex, to: alphabet.index(of: input.first!)!)
         
         var _input = input
         _input.remove(at: _input.startIndex)
@@ -74,8 +71,12 @@ class AudioManager {
             let normalisedVal = Double(1 - (abs(valDouble!)/distanceThresh))
             let midiVal = Int(max(normalisedVal * 127, 0))
             
-            noteOn(note: note, vel: midiVal)
-            oscToUpdate.amplitude = normalisedVal
+            if midiVal > 0 {
+                noteOn(note: midiNotes[idx], vel: midiVal)
+            } else {
+                midi.sendNoteOffMessage(noteNumber: MIDINoteNumber(midiNotes[idx]), velocity: 0)
+            }
+            //oscillators[idx].amplitude = normalisedVal
             
         }
         
@@ -107,6 +108,7 @@ class AudioManager {
         mixer.detach()
         
         oscillators.removeAll()
+        midiNotes.removeAll()
         
         
         do {
