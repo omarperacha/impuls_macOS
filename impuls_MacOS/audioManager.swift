@@ -11,6 +11,10 @@ import AudioKit
 
 class AudioManager {
     
+    
+    private let midi = AudioKit.midi
+    
+    let midiNotes = [36, 68]
     let numOscs = 2
     var oscillators = [AKOscillator]()
     var mixer = AKMixer()
@@ -19,7 +23,9 @@ class AudioManager {
         
         AKSettings.playbackWhileMuted = true
         
-        for i in 0 ..< numOscs {
+        midi.openOutput()
+        
+        for _ in 0 ..< numOscs {
             oscillators.append(AKOscillator())
         }
         
@@ -46,9 +52,11 @@ class AudioManager {
     func updateAmp(input: String){
         
         var oscToUpdate = oscillators[0]
+        var note = midiNotes[0]
         
         if input.first == "b" {
             oscToUpdate = oscillators[1]
+            note = midiNotes[1]
         }
         
         var _input = input
@@ -57,11 +65,19 @@ class AudioManager {
         let valDouble = Double(parsed[0])
         
         if valDouble != nil {
-            oscToUpdate.amplitude = Double(1 - (abs(valDouble!)/4))}
+            let normalisedVal = Double(1 - (abs(valDouble!)/4))
+            let midiVal = Int(max(normalisedVal * 127, 0))
+            
+            noteOn(note: note, vel: midiVal)
+            
+        }
         
     }
     
     func mute(){
+        for note in midiNotes{
+            midi.sendNoteOffMessage(noteNumber: MIDINoteNumber(note), velocity: 0)
+        }
         for osc in oscillators {
             osc.amplitude = 0
         }
@@ -91,5 +107,8 @@ class AudioManager {
         } catch {print(error.localizedDescription)}
     }
     
+    func noteOn(note: Int, vel: Int) {
+        midi.sendEvent(AKMIDIEvent(noteOn: MIDINoteNumber(note), velocity: MIDIVelocity(vel), channel: 1))
+    }
     
 }
