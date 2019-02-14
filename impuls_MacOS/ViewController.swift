@@ -43,7 +43,7 @@ extension ViewController : AudioServiceDelegate {
     
     func distanceChanged(manager: AudioService, distance: String) {
         OperationQueue.main.addOperation {
-            conductor.updateAmp(input: distance)
+            conductor.updateSound(input: distance)
         }
     }
     

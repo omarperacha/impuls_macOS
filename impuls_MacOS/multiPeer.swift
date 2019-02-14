@@ -80,6 +80,7 @@ extension AudioService : MCNearbyServiceAdvertiserDelegate {
         NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
         invitationHandler(true, self.session)
         conductor.setup()
+        conductor.initUser(name: "\(peerID)")
     }
     
 }
@@ -98,7 +99,9 @@ extension AudioService : MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         NSLog("%@", "lostPeer: \(peerID)")
-        conductor.disconnectOscillatros()
+        let lostPeer = conductor.getUser(withName: "\(peerID)")
+        lostPeer?.disconnectOscillators()
+        conductor.removeUser(withName: "\(peerID)")
     }
     
 }
