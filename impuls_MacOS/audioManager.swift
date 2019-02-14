@@ -125,6 +125,7 @@ class User {
     let numOscs = 5
     var oscillators = [AKOscillator]()
     var samplers = [AKWaveTable]()
+    var tubularBells = [ImpulsBell]()
     var distanceThresh = 0.2
     
     let samples = ["air.wav", "multiphonic1.wav", "ton.wav", "multiphonic2.wav", "ton unstable.wav", "multiphonic3.wav", "slap open.wav", "slap1.wav", "slap2.wav"]
@@ -147,6 +148,10 @@ class User {
             
             samplers[i] >>> conductor.mixer
             samplers[i].play()
+            
+            let tubularBell = ImpulsBell()
+            tubularBells.append(tubularBell)
+            tubularBells[i] >>> conductor.mixer
         }
         
     }
@@ -166,8 +171,13 @@ class User {
             
         if midiVal > 0 {
             noteOn(note: midiNotes[idx], vel: midiVal)
+            if !tubularBells[idx].triggered{
+                tubularBells[idx].trigger(frequency: 110 + (110*idx), amplitude: 1)
+                tubularBells[idx].triggered = true
+            }
         } else {
             conductor.midi.sendNoteOffMessage(noteNumber: MIDINoteNumber(midiNotes[idx]), velocity: 0)
+            tubularBells[idx].triggered = false
         }
         //oscillators[idx].amplitude = normalisedVal
         
@@ -202,4 +212,13 @@ class User {
         samplers.removeAll()
     }
     
+}
+
+class ImpulsBell: AKTubularBells {
+    
+    var triggered = false
+    
+    init(){
+        super.init()
+    }
 }
