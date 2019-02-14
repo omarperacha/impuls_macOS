@@ -62,8 +62,11 @@ class AudioManager {
         
         var name = ""
         
-        for component in parsed[1 ..< parsed.count] {
-            name += component
+        for i in 1 ..< parsed.count {
+            name += parsed[i]
+            if i < (parsed.count - 1) {
+                name += " "
+            }
         }
         
         let user = getUser(withName: name)
@@ -91,6 +94,7 @@ class AudioManager {
     }
     
     func getUser(withName: String) -> User? {
+        
         for user in users {
             if user.name == withName {
                 return user
@@ -103,6 +107,7 @@ class AudioManager {
         for i in 0 ..< users.count {
             if users[i].name == withName {
                 users.remove(at: i)
+                return
             }
         }
     }
@@ -153,7 +158,7 @@ class User {
         } else {
             conductor.midi.sendNoteOffMessage(noteNumber: MIDINoteNumber(midiNotes[idx]), velocity: 0)
         }
-        oscillators[idx].amplitude = normalisedVal
+        //oscillators[idx].amplitude = normalisedVal
         
         
     }
