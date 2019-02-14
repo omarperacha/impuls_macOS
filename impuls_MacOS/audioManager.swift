@@ -124,7 +124,10 @@ class User {
     var midiNotes = [Int]()
     let numOscs = 5
     var oscillators = [AKOscillator]()
-    var distanceThresh = 0.15
+    var samplers = [AKWaveTable]()
+    var distanceThresh = 0.2
+    
+    let samples = ["air.wav", "multiphonic1.wav", "ton.wav", "multiphonic2.wav", "ton unstable.wav", "multiphonic3.wav", "slap open.wav", "slap1.wav", "slap2.wav"]
     
     init() {
         for i in 0 ..< numOscs {
@@ -132,12 +135,20 @@ class User {
             oscillators.append(AKOscillator())
             oscillators[i].frequency = 220 + i*220
             oscillators[i].amplitude = 0
+            
             oscillators[i] >>> conductor.mixer
+            oscillators[i].start()
+            
+            let file = try! AKAudioFile(readFileName: samples[i])
+            let sampler = AKWaveTable(file: file)
+            samplers.append(sampler)
+            samplers[i].loopEnabled = true
+            samplers[i].volume = 0
+            
+            samplers[i] >>> conductor.mixer
+            samplers[i].play()
         }
         
-        for osc in oscillators {
-            osc.start()
-        }
     }
     
     func noteOn(note: Int, vel: Int) {
@@ -160,6 +171,10 @@ class User {
         }
         //oscillators[idx].amplitude = normalisedVal
         
+        if samplers.count > 0 {
+            samplers[idx].volume = normalisedVal
+        }
+        
         
     }
     
@@ -170,6 +185,9 @@ class User {
         for osc in oscillators {
             osc.amplitude = 0
         }
+        for sampler in samplers {
+            sampler.volume = 0
+        }
     }
     
     func disconnectOscillators() {
@@ -177,7 +195,11 @@ class User {
         for osc in oscillators {
             osc.detach()
         }
+        for sampler in samplers {
+            sampler.detach()
+        }
         oscillators.removeAll()
+        samplers.removeAll()
     }
     
 }
