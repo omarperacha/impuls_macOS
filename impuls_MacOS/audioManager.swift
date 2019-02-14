@@ -131,15 +131,15 @@ class User {
     
     init() {
         for i in 0 ..< numOscs {
-            midiNotes.append(36 + i*8)
+            midiNotes.append(36 + i*8 + 3*(conductor.users.count))
             oscillators.append(AKOscillator())
-            oscillators[i].frequency = 220 + i*220
+            oscillators[i].frequency = 220 + i*220 + (conductor.users.count * 110)
             oscillators[i].amplitude = 0
             
             oscillators[i] >>> conductor.mixer
             oscillators[i].start()
             
-            let file = try! AKAudioFile(readFileName: samples[i])
+            let file = try! AKAudioFile(readFileName: samples[(conductor.users.count)*numOscs + i % samples.count])
             let sampler = AKWaveTable(file: file)
             samplers.append(sampler)
             samplers[i].loopEnabled = true
