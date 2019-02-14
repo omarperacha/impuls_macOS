@@ -139,7 +139,7 @@ class User {
             oscillators[i] >>> conductor.mixer
             oscillators[i].start()
             
-            let file = try! AKAudioFile(readFileName: samples[(conductor.users.count)*numOscs + i % samples.count])
+            let file = try! AKAudioFile(readFileName: samples[((conductor.users.count)*numOscs + i) % samples.count])
             let sampler = AKWaveTable(file: file)
             samplers.append(sampler)
             samplers[i].loopEnabled = true
