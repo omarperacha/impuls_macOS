@@ -7,15 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5944FA9B2215BC8B00E24B4D /* slap1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5944FA922215BC8B00E24B4D /* slap1.wav */; };
-		5944FA9C2215BC8B00E24B4D /* ton unstable.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5944FA932215BC8B00E24B4D /* ton unstable.wav */; };
-		5944FA9D2215BC8B00E24B4D /* ton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5944FA942215BC8B00E24B4D /* ton.wav */; };
-		5944FA9E2215BC8B00E24B4D /* multiphonic1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5944FA952215BC8B00E24B4D /* multiphonic1.wav */; };
-		5944FA9F2215BC8B00E24B4D /* multiphonic3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5944FA962215BC8B00E24B4D /* multiphonic3.wav */; };
-		5944FAA02215BC8B00E24B4D /* slap2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5944FA972215BC8B00E24B4D /* slap2.wav */; };
-		5944FAA12215BC8B00E24B4D /* air.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5944FA982215BC8B00E24B4D /* air.wav */; };
-		5944FAA22215BC8B00E24B4D /* multiphonic2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5944FA992215BC8B00E24B4D /* multiphonic2.wav */; };
-		5944FAA32215BC8B00E24B4D /* slap open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5944FA9A2215BC8B00E24B4D /* slap open.wav */; };
 		5956B7932213381F00BE9235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7922213381F00BE9235 /* AppDelegate.swift */; };
 		5956B7952213381F00BE9235 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7942213381F00BE9235 /* ViewController.swift */; };
 		5956B7972213382000BE9235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5956B7962213382000BE9235 /* Assets.xcassets */; };
@@ -23,20 +14,19 @@
 		5956B7A32213388900BE9235 /* multiPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7A22213388900BE9235 /* multiPeer.swift */; };
 		5956B7A622133A1700BE9235 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5956B7A522133A1700BE9235 /* NetworkExtension.framework */; };
 		5956B7A822133B3C00BE9235 /* audioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7A722133B3C00BE9235 /* audioManager.swift */; };
+		595B5BD5221712D300B2C514 /* multiphonic1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BCD221712D200B2C514 /* multiphonic1.wav */; };
+		595B5BD6221712D300B2C514 /* multiphonic4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BCE221712D200B2C514 /* multiphonic4.wav */; };
+		595B5BD7221712D300B2C514 /* multiphonic7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BCF221712D200B2C514 /* multiphonic7.wav */; };
+		595B5BD8221712D300B2C514 /* multiphonic5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BD0221712D200B2C514 /* multiphonic5.wav */; };
+		595B5BD9221712D300B2C514 /* multiphonic8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BD1221712D200B2C514 /* multiphonic8.wav */; };
+		595B5BDA221712D300B2C514 /* multiphonic2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BD2221712D300B2C514 /* multiphonic2.wav */; };
+		595B5BDB221712D300B2C514 /* multiphonic3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BD3221712D300B2C514 /* multiphonic3.wav */; };
+		595B5BDC221712D300B2C514 /* multiphonic6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BD4221712D300B2C514 /* multiphonic6.wav */; };
 		A86EA248A9C469E0DC30E15B /* Pods_impuls_MacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B01E6B42DCA25F6E59606C /* Pods_impuls_MacOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		47B01E6B42DCA25F6E59606C /* Pods_impuls_MacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_impuls_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5944FA922215BC8B00E24B4D /* slap1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = slap1.wav; path = ../../../Downloads/attachments/slap1.wav; sourceTree = "<group>"; };
-		5944FA932215BC8B00E24B4D /* ton unstable.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "ton unstable.wav"; path = "../../../Downloads/attachments/ton unstable.wav"; sourceTree = "<group>"; };
-		5944FA942215BC8B00E24B4D /* ton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ton.wav; path = ../../../Downloads/attachments/ton.wav; sourceTree = "<group>"; };
-		5944FA952215BC8B00E24B4D /* multiphonic1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = multiphonic1.wav; path = ../../../Downloads/attachments/multiphonic1.wav; sourceTree = "<group>"; };
-		5944FA962215BC8B00E24B4D /* multiphonic3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = multiphonic3.wav; path = ../../../Downloads/attachments/multiphonic3.wav; sourceTree = "<group>"; };
-		5944FA972215BC8B00E24B4D /* slap2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = slap2.wav; path = ../../../Downloads/attachments/slap2.wav; sourceTree = "<group>"; };
-		5944FA982215BC8B00E24B4D /* air.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = air.wav; path = ../../../Downloads/attachments/air.wav; sourceTree = "<group>"; };
-		5944FA992215BC8B00E24B4D /* multiphonic2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = multiphonic2.wav; path = ../../../Downloads/attachments/multiphonic2.wav; sourceTree = "<group>"; };
-		5944FA9A2215BC8B00E24B4D /* slap open.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "slap open.wav"; path = "../../../Downloads/attachments/slap open.wav"; sourceTree = "<group>"; };
 		5956B78F2213381F00BE9235 /* impuls_MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = impuls_MacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5956B7922213381F00BE9235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5956B7942213381F00BE9235 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +37,14 @@
 		5956B7A22213388900BE9235 /* multiPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multiPeer.swift; sourceTree = "<group>"; };
 		5956B7A522133A1700BE9235 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		5956B7A722133B3C00BE9235 /* audioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioManager.swift; sourceTree = "<group>"; };
+		595B5BCD221712D200B2C514 /* multiphonic1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic1.wav; sourceTree = "<group>"; };
+		595B5BCE221712D200B2C514 /* multiphonic4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic4.wav; sourceTree = "<group>"; };
+		595B5BCF221712D200B2C514 /* multiphonic7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic7.wav; sourceTree = "<group>"; };
+		595B5BD0221712D200B2C514 /* multiphonic5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic5.wav; sourceTree = "<group>"; };
+		595B5BD1221712D200B2C514 /* multiphonic8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic8.wav; sourceTree = "<group>"; };
+		595B5BD2221712D300B2C514 /* multiphonic2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic2.wav; sourceTree = "<group>"; };
+		595B5BD3221712D300B2C514 /* multiphonic3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic3.wav; sourceTree = "<group>"; };
+		595B5BD4221712D300B2C514 /* multiphonic6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic6.wav; sourceTree = "<group>"; };
 		AE84462B96D08DB740A1A90C /* Pods-impuls_MacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-impuls_MacOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-impuls_MacOS/Pods-impuls_MacOS.release.xcconfig"; sourceTree = "<group>"; };
 		C305FB05AAB8D9FE068DAB7C /* Pods-impuls_MacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-impuls_MacOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-impuls_MacOS/Pods-impuls_MacOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,15 +65,14 @@
 		5944FA912215BC6B00E24B4D /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				5944FA982215BC8B00E24B4D /* air.wav */,
-				5944FA952215BC8B00E24B4D /* multiphonic1.wav */,
-				5944FA992215BC8B00E24B4D /* multiphonic2.wav */,
-				5944FA962215BC8B00E24B4D /* multiphonic3.wav */,
-				5944FA9A2215BC8B00E24B4D /* slap open.wav */,
-				5944FA922215BC8B00E24B4D /* slap1.wav */,
-				5944FA972215BC8B00E24B4D /* slap2.wav */,
-				5944FA932215BC8B00E24B4D /* ton unstable.wav */,
-				5944FA942215BC8B00E24B4D /* ton.wav */,
+				595B5BCD221712D200B2C514 /* multiphonic1.wav */,
+				595B5BD2221712D300B2C514 /* multiphonic2.wav */,
+				595B5BD3221712D300B2C514 /* multiphonic3.wav */,
+				595B5BCE221712D200B2C514 /* multiphonic4.wav */,
+				595B5BD0221712D200B2C514 /* multiphonic5.wav */,
+				595B5BD4221712D300B2C514 /* multiphonic6.wav */,
+				595B5BCF221712D200B2C514 /* multiphonic7.wav */,
+				595B5BD1221712D200B2C514 /* multiphonic8.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -196,17 +193,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				595B5BDB221712D300B2C514 /* multiphonic3.wav in Resources */,
+				595B5BD6221712D300B2C514 /* multiphonic4.wav in Resources */,
+				595B5BD5221712D300B2C514 /* multiphonic1.wav in Resources */,
+				595B5BDA221712D300B2C514 /* multiphonic2.wav in Resources */,
 				5956B7972213382000BE9235 /* Assets.xcassets in Resources */,
-				5944FA9B2215BC8B00E24B4D /* slap1.wav in Resources */,
+				595B5BD8221712D300B2C514 /* multiphonic5.wav in Resources */,
+				595B5BD9221712D300B2C514 /* multiphonic8.wav in Resources */,
+				595B5BD7221712D300B2C514 /* multiphonic7.wav in Resources */,
+				595B5BDC221712D300B2C514 /* multiphonic6.wav in Resources */,
 				5956B79A2213382000BE9235 /* Main.storyboard in Resources */,
-				5944FA9E2215BC8B00E24B4D /* multiphonic1.wav in Resources */,
-				5944FA9D2215BC8B00E24B4D /* ton.wav in Resources */,
-				5944FA9C2215BC8B00E24B4D /* ton unstable.wav in Resources */,
-				5944FAA12215BC8B00E24B4D /* air.wav in Resources */,
-				5944FA9F2215BC8B00E24B4D /* multiphonic3.wav in Resources */,
-				5944FAA22215BC8B00E24B4D /* multiphonic2.wav in Resources */,
-				5944FAA32215BC8B00E24B4D /* slap open.wav in Resources */,
-				5944FAA02215BC8B00E24B4D /* slap2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

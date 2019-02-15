@@ -19,6 +19,8 @@ class AudioManager {
     
     var users = [User]()
     
+    var config = "Sax"
+    
     
     func setup() {
         
@@ -50,7 +52,7 @@ class AudioManager {
     }
     
     func updateSound(input: String){
-        
+
         let alphabet = "abcdefghijklmnopqrstuvwxyz"
         
         let idx = alphabet.distance(from: alphabet.startIndex, to: alphabet.index(of: input.first!)!)
@@ -73,6 +75,7 @@ class AudioManager {
         let user = getUser(withName: name)
         
         if user != nil && valDouble != nil && mixerDouble != nil {
+            print("000_ \(idx) volume: \(valDouble!)")
             user?.updateAmp(idx: idx, valDouble: valDouble!, mixer: mixerDouble!)
         }
         
@@ -118,43 +121,47 @@ class AudioManager {
 }
 
 
-
 class User {
     
     var name = ""
     var midiNotes = [Int]()
-    let numOscs = 5
+    let numOscs = 8
     var oscillators = [AKOscillator]()
     var samplers = [AKWaveTable]()
-    var tubularBells = [ImpulsBell]()
-    var distanceThresh = 0.2
+    var distanceThresh = 0.4
     
-    let samples = ["air.wav", "multiphonic1.wav", "ton.wav", "multiphonic2.wav", "ton unstable.wav", "multiphonic3.wav", "slap open.wav", "slap1.wav", "slap2.wav"]
+    var mixer1 = AKMixer()
+    var mixer2 = AKMixer()
+    var dryWet = AKDryWetMixer()
+    
+    let samples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
     init() {
+        mixer1 >>> conductor.mixer
+        mixer2 >>> conductor.mixer
+
         for i in 0 ..< numOscs {
+            
             midiNotes.append(36 + i*8 + 3*(conductor.users.count))
-            oscillators.append(AKOscillator())
-            oscillators[i].frequency = 220 + i*220 + (conductor.users.count * 110)
-            oscillators[i].amplitude = 0
             
-            oscillators[i] >>> conductor.mixer
-            oscillators[i].start()
-            
-            let file = try! AKAudioFile(readFileName: samples[((conductor.users.count)*numOscs + i) % samples.count])
+            let file = try! AKAudioFile(readFileName: samples[i])
             let sampler = AKWaveTable(file: file)
             samplers.append(sampler)
             samplers[i].loopEnabled = true
             samplers[i].volume = 0
             
-            samplers[i] >>> conductor.mixer
+            
+            if i < numOscs/2 {
+                samplers[i] >>> mixer1
+            } else {
+                samplers[i] >>> mixer2
+            }
+            
             samplers[i].play()
             
-            let tubularBell = ImpulsBell()
-            tubularBells.append(tubularBell)
-            tubularBells[i] >>> conductor.mixer
         }
         
+
     }
     
     func noteOn(note: Int, vel: Int) {
@@ -163,7 +170,7 @@ class User {
     
     func updateAmp(idx: Int, valDouble: Double, mixer: Double){
         
-        if oscillators.count < 1 {
+        if conductor.config != "Sax" && oscillators.count < 1 {
             return
         }
         
@@ -172,20 +179,20 @@ class User {
             
         if midiVal > 0 {
             noteOn(note: midiNotes[idx], vel: midiVal)
-            if !tubularBells[idx].triggered{
-                tubularBells[idx].trigger(frequency: 110 + (110*idx), amplitude: 1)
-                tubularBells[idx].triggered = true
-            }
         } else {
             conductor.midi.sendNoteOffMessage(noteNumber: MIDINoteNumber(midiNotes[idx]), velocity: 0)
-            tubularBells[idx].triggered = false
         }
-        //oscillators[idx].amplitude = normalisedVal
         
         if samplers.count > 0 {
             samplers[idx].volume = normalisedVal
+            if conductor.config == "Sax" {
+                samplers[idx * 2].volume = normalisedVal
+            }
         }
         
+        let balance = min(1, max(0, (mixer - 165)/60))
+        mixer1.volume = 1 - balance
+        mixer2.volume = balance
         
     }
     
