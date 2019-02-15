@@ -59,10 +59,11 @@ class AudioManager {
         _input.remove(at: _input.startIndex)
         let parsed = _input.components(separatedBy: " ")
         let valDouble = Double(parsed[0])
+        let mixerDouble = Double(parsed[1])
         
         var name = ""
         
-        for i in 1 ..< parsed.count {
+        for i in 2 ..< parsed.count {
             name += parsed[i]
             if i < (parsed.count - 1) {
                 name += " "
@@ -71,8 +72,8 @@ class AudioManager {
         
         let user = getUser(withName: name)
         
-        if user != nil && valDouble != nil {
-            user?.updateAmp(idx: idx, valDouble: valDouble!)
+        if user != nil && valDouble != nil && mixerDouble != nil {
+            user?.updateAmp(idx: idx, valDouble: valDouble!, mixer: mixerDouble!)
         }
         
     }
@@ -160,7 +161,7 @@ class User {
         conductor.midi.sendEvent(AKMIDIEvent(noteOn: MIDINoteNumber(note), velocity: MIDIVelocity(vel), channel: 1))
     }
     
-    func updateAmp(idx: Int, valDouble: Double){
+    func updateAmp(idx: Int, valDouble: Double, mixer: Double){
         
         if oscillators.count < 1 {
             return
