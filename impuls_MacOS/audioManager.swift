@@ -190,7 +190,7 @@ class User {
             }
         }
         
-        let balance = min(1, max(0, (mixer - 165)/60))
+        let balance = min(1, max(0, (mixer - 0)/90))
         mixer1.volume = 1 - balance
         mixer2.volume = balance
         
