@@ -11,7 +11,7 @@ import AudioKit
 
 class AudioManager {
     
-    
+    let lock = NSLock()
     let midi = AudioKit.midi
     private var audioKitRunning = false
     
@@ -28,6 +28,8 @@ class AudioManager {
             return
         }
         
+        lock.lock()
+        
         AKSettings.playbackWhileMuted = true
         
         midi.openOutput()
@@ -41,6 +43,7 @@ class AudioManager {
         
         audioKitRunning = true
         
+        lock.unlock()
     }
     
     func initUser(name: String) {
@@ -85,16 +88,20 @@ class AudioManager {
     func tearDown(){
         
         for user in users{
-            user.disconnectOscillators()
+            user.disconnect()
         }
         
         users.removeAll()
+        
+        lock.lock()
         
         do {
             try AudioKit.stop()
         } catch {print(error.localizedDescription)}
         
         audioKitRunning = false
+        
+        lock.unlock()
     }
     
     func getUser(withName: String) -> User? {
@@ -117,6 +124,13 @@ class AudioManager {
     }
     
     
+    func destroyUser(withName: String){
+        let user = getUser(withName: withName)
+        user?.disconnect()
+        removeUser(withName: withName)
+    }
+    
+    
     
 }
 
@@ -125,6 +139,7 @@ class User {
     
     var name = ""
     var midiNotes = [Int]()
+    let mixerSplitIdx = 4
     let numOscs = 8
     var oscillators = [AKOscillator]()
     var samplers = [AKWaveTable]()
@@ -137,6 +152,12 @@ class User {
     let samples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
     init() {
+        
+        conductor.lock.lock()
+        defer {
+            conductor.lock.unlock()
+        }
+        
         mixer1 >>> conductor.mixer
         mixer2 >>> conductor.mixer
 
@@ -151,10 +172,11 @@ class User {
             samplers[i].volume = 0
             
             
-            if i < numOscs/2 {
+            if i < mixerSplitIdx {
                 samplers[i] >>> mixer1
             } else {
                 samplers[i] >>> mixer2
+                print("000_ connected to mixer 2")
             }
             
             samplers[i].play()
@@ -186,13 +208,15 @@ class User {
         if samplers.count > 0 {
             samplers[idx].volume = normalisedVal
             if conductor.config == "Sax" {
-                samplers[idx * 2].volume = normalisedVal
+                samplers[idx + mixerSplitIdx].volume = normalisedVal
             }
         }
         
         let balance = min(1, max(0, (mixer - 0)/90))
         mixer1.volume = 1 - balance
         mixer2.volume = balance
+        
+        print("000_ mixer 1: \(mixer1.volume), mixer 2: \(mixer2.volume)")
         
     }
     
@@ -208,7 +232,13 @@ class User {
         }
     }
     
-    func disconnectOscillators() {
+    func disconnect() {
+        
+        conductor.lock.lock()
+        defer {
+            conductor.lock.unlock()
+        }
+        
         mute()
         for osc in oscillators {
             osc.detach()
@@ -216,9 +246,14 @@ class User {
         for sampler in samplers {
             sampler.detach()
         }
+        
+        mixer1.detach()
+        mixer2.detach()
+        
         oscillators.removeAll()
         samplers.removeAll()
     }
+    
     
 }
 

@@ -101,11 +101,7 @@ extension AudioService : MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         NSLog("%@", "lostPeer: \(peerID)")
-        conductor.tearDown()
-        conductor.removeUser(withName: peerID.displayName)
-        if conductor.users.count > 0 {
-            conductor.setup()
-        }
+        conductor.destroyUser(withName: peerID.displayName)
     }
     
 }
