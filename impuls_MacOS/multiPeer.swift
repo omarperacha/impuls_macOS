@@ -18,6 +18,8 @@ protocol AudioServiceDelegate {
 
 class AudioService : NSObject {
     
+    var entryDict = ["Omar Peracha's iPhone": false]
+    
     // Service type must be a unique string, at most 15 characters long
     // and can contain only ASCII lowercase letters, numbers and hyphens.
     private let audioServiceType = "impuls-ios"
@@ -78,7 +80,7 @@ extension AudioService : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
-        if peerID.displayName != "macbook-air.local" {
+        if entryDict[peerID.displayName] ?? false {
             invitationHandler(true, self.session)
             conductor.setup()
             conductor.initUser(name: peerID.displayName)}
@@ -95,7 +97,7 @@ extension AudioService : MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         NSLog("%@", "foundPeer: \(peerID)")
         NSLog("%@", "invitePeer: \(peerID)")
-        if peerID.displayName != "macbook-air.local" {
+        if entryDict[peerID.displayName] ?? false {
             browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)}
     }
     

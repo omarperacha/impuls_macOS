@@ -14,6 +14,13 @@ class ViewController: NSViewController {
     
     let audioService = AudioService()
 
+    @IBOutlet weak var OPCheckBox: NSButton!
+    
+    @IBAction func toggleOP(_ sender: Any) {
+        let string = OPCheckBox.title
+        audioService.entryDict[string] = Bool(truncating: OPCheckBox.state.rawValue as NSNumber)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
