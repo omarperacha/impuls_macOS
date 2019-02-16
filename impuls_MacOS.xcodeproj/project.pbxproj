@@ -22,6 +22,12 @@
 		595B5BDA221712D300B2C514 /* multiphonic2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BD2221712D300B2C514 /* multiphonic2.wav */; };
 		595B5BDB221712D300B2C514 /* multiphonic3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BD3221712D300B2C514 /* multiphonic3.wav */; };
 		595B5BDC221712D300B2C514 /* multiphonic6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BD4221712D300B2C514 /* multiphonic6.wav */; };
+		59986FE222186DC400DB553A /* superball grande 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FE022186DC300DB553A /* superball grande 1.wav */; };
+		59986FE322186DC400DB553A /* lento su plastica 1 stretch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FE122186DC400DB553A /* lento su plastica 1 stretch.wav */; };
+		59986FE822186DD600DB553A /* exhale 1 stretch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FE422186DD600DB553A /* exhale 1 stretch.wav */; };
+		59986FE922186DD600DB553A /* acciaccatura + battuto cluster 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FE522186DD600DB553A /* acciaccatura + battuto cluster 1.wav */; };
+		59986FEA22186DD600DB553A /* acuto stoppato 1 nota.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FE622186DD600DB553A /* acuto stoppato 1 nota.wav */; };
+		59986FEB22186DD600DB553A /* bump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FE722186DD600DB553A /* bump.wav */; };
 		A86EA248A9C469E0DC30E15B /* Pods_impuls_MacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B01E6B42DCA25F6E59606C /* Pods_impuls_MacOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +51,12 @@
 		595B5BD2221712D300B2C514 /* multiphonic2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic2.wav; sourceTree = "<group>"; };
 		595B5BD3221712D300B2C514 /* multiphonic3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic3.wav; sourceTree = "<group>"; };
 		595B5BD4221712D300B2C514 /* multiphonic6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic6.wav; sourceTree = "<group>"; };
+		59986FE022186DC300DB553A /* superball grande 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "superball grande 1.wav"; sourceTree = "<group>"; };
+		59986FE122186DC400DB553A /* lento su plastica 1 stretch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "lento su plastica 1 stretch.wav"; sourceTree = "<group>"; };
+		59986FE422186DD600DB553A /* exhale 1 stretch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "exhale 1 stretch.wav"; sourceTree = "<group>"; };
+		59986FE522186DD600DB553A /* acciaccatura + battuto cluster 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "acciaccatura + battuto cluster 1.wav"; sourceTree = "<group>"; };
+		59986FE622186DD600DB553A /* acuto stoppato 1 nota.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "acuto stoppato 1 nota.wav"; sourceTree = "<group>"; };
+		59986FE722186DD600DB553A /* bump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bump.wav; sourceTree = "<group>"; };
 		AE84462B96D08DB740A1A90C /* Pods-impuls_MacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-impuls_MacOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-impuls_MacOS/Pods-impuls_MacOS.release.xcconfig"; sourceTree = "<group>"; };
 		C305FB05AAB8D9FE068DAB7C /* Pods-impuls_MacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-impuls_MacOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-impuls_MacOS/Pods-impuls_MacOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +85,12 @@
 				595B5BD4221712D300B2C514 /* multiphonic6.wav */,
 				595B5BCF221712D200B2C514 /* multiphonic7.wav */,
 				595B5BD1221712D200B2C514 /* multiphonic8.wav */,
+				59986FE122186DC400DB553A /* lento su plastica 1 stretch.wav */,
+				59986FE022186DC300DB553A /* superball grande 1.wav */,
+				59986FE522186DD600DB553A /* acciaccatura + battuto cluster 1.wav */,
+				59986FE622186DD600DB553A /* acuto stoppato 1 nota.wav */,
+				59986FE722186DD600DB553A /* bump.wav */,
+				59986FE422186DD600DB553A /* exhale 1 stretch.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -194,15 +212,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				595B5BDB221712D300B2C514 /* multiphonic3.wav in Resources */,
+				59986FEA22186DD600DB553A /* acuto stoppato 1 nota.wav in Resources */,
 				595B5BD6221712D300B2C514 /* multiphonic4.wav in Resources */,
 				595B5BD5221712D300B2C514 /* multiphonic1.wav in Resources */,
+				59986FE922186DD600DB553A /* acciaccatura + battuto cluster 1.wav in Resources */,
 				595B5BDA221712D300B2C514 /* multiphonic2.wav in Resources */,
 				5956B7972213382000BE9235 /* Assets.xcassets in Resources */,
 				595B5BD8221712D300B2C514 /* multiphonic5.wav in Resources */,
+				59986FEB22186DD600DB553A /* bump.wav in Resources */,
+				59986FE222186DC400DB553A /* superball grande 1.wav in Resources */,
 				595B5BD9221712D300B2C514 /* multiphonic8.wav in Resources */,
+				59986FE322186DC400DB553A /* lento su plastica 1 stretch.wav in Resources */,
 				595B5BD7221712D300B2C514 /* multiphonic7.wav in Resources */,
 				595B5BDC221712D300B2C514 /* multiphonic6.wav in Resources */,
 				5956B79A2213382000BE9235 /* Main.storyboard in Resources */,
+				59986FE822186DD600DB553A /* exhale 1 stretch.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
