@@ -17,7 +17,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var OPCheckBox: NSButton!
     
     @IBAction func toggleOP(_ sender: Any) {
-        let string = OPCheckBox.title
+        let string = "Omar Peracha’s iPhone"
         audioService.entryDict[string] = Bool(truncating: OPCheckBox.state.rawValue as NSNumber)
     }
     

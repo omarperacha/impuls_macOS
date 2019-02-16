@@ -18,7 +18,7 @@ protocol AudioServiceDelegate {
 
 class AudioService : NSObject {
     
-    var entryDict = ["Omar Peracha's iPhone": false]
+    var entryDict = ["Omar Peracha’s iPhone": false]
     
     // Service type must be a unique string, at most 15 characters long
     // and can contain only ASCII lowercase letters, numbers and hyphens.
@@ -71,7 +71,6 @@ class AudioService : NSObject {
     
 }
 
-
 extension AudioService : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
@@ -82,8 +81,7 @@ extension AudioService : MCNearbyServiceAdvertiserDelegate {
         NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
         if entryDict[peerID.displayName] ?? false {
             invitationHandler(true, self.session)
-            conductor.setup()
-            conductor.initUser(name: peerID.displayName)}
+        }
     }
     
 }
@@ -96,14 +94,13 @@ extension AudioService : MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         NSLog("%@", "foundPeer: \(peerID)")
-        NSLog("%@", "invitePeer: \(peerID)")
         if entryDict[peerID.displayName] ?? false {
+            NSLog("%@", "invitePeer: \(peerID)")
             browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)}
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         NSLog("%@", "lostPeer: \(peerID)")
-        conductor.destroyUser(withName: peerID.displayName)
     }
     
 }
@@ -114,6 +111,16 @@ extension AudioService : MCSessionDelegate {
         NSLog("%@", "peer \(peerID) didChangeState: \(state.rawValue)")
         self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
             session.connectedPeers.map{$0.displayName})
+        if state.rawValue == 0 {
+            conductor.destroyUser(withName: peerID.displayName)
+        } else if state.rawValue == 2 {
+            if entryDict[peerID.displayName] ?? false {
+                
+            conductor.setup()
+            conductor.initUser(name: peerID.displayName)
+                
+            }
+        }
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
