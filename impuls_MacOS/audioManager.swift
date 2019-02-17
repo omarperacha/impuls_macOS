@@ -22,7 +22,7 @@ class AudioManager {
     
     let configDict = ["Sax":8, "Column": 2, "Game": 8]
     
-    let usernames = ["User1", "User2",  "User3",  "User4", "User5"]
+    let usernames = ["Omar Peracha’s iPhone", "User2",  "User3",  "User4", "User5"]
     
     
     func setup() {
@@ -148,7 +148,7 @@ class User {
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
-    let colBank1 = ["1 thump TRIGGER.wav", "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "5 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none", "none", "8 rapido su plastica 2 TRIGGER.wav", "9 thump TRIGGER.aiff"]
+    let colBank1 = ["1 thump 1 TRIGGER.wav", "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "5 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none", "none", "8 rapido su plastica 2 TRIGGER.wav", "9 thump TRIGGER.aiff"]
     
     let colBank2 = ["1 lento polistirolo 1 stretch.wav", "2 distacco da polistirolo lento TRIGGER. wav", "3 lento polistirolo 2 stretch.wav", "4 distacco da polistirolo lento TRIGGER.wav", "5 superball grande 1.wav", "none", "none", "8 superball piccola 2.wav", "9 armonico grave multifonico TRIGGER.wav"]
     

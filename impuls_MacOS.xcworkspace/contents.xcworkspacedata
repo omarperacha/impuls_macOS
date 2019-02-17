@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/omarperacha/impuls_MacOS/impuls_MacOS/impulsPlayer.swift">
+   </FileRef>
+   <FileRef
       location = "group:impuls_MacOS.xcodeproj">
    </FileRef>
    <FileRef

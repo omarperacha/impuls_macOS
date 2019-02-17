@@ -124,7 +124,7 @@ extension AudioService : MCSessionDelegate {
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        NSLog("%@", "didReceiveData: \(data)")
+        //NSLog("%@", "didReceiveData: \(data)")
         let str = String(data: data, encoding: .utf8)!
         self.delegate?.distanceChanged(manager: self, distance: str)
     }
