@@ -142,6 +142,8 @@ class User {
     var mixer1 = AKMixer()
     var mixer2 = AKMixer()
     
+    var pan = AKPanner()
+    
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
     let colSamples = ["lento su plastica 1 stretch.wav", "superball grande 1.wav",  "acciaccatura + battuto cluster 1.wav", "exhale 1 stretch.wav", "acuto stoppato 1 nota.wav",  "bump.wav"]
@@ -158,6 +160,8 @@ class User {
         if conductor.config == "Sax" {
             mixer1 >>> conductor.mixer
             mixer2 >>> conductor.mixer
+        } else if conductor.config == "Column" {
+            pan >>> conductor.mixer
         }
         
         for i in 0 ..< numOscs {
@@ -185,7 +189,7 @@ class User {
                     samplers[i] >>> mixer2
                 }
             } else {
-                samplers[i] >>> conductor.mixer
+                samplers[i] >>> pan
             }
             
             samplers[i].play()
