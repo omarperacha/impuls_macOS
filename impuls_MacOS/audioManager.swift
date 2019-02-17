@@ -148,13 +148,19 @@ class User {
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
-    let colBank1 = [""]
-    let colBank2 = [""]
-    let colBank3 = [""]
-    let colBank4 = [""]
-    let colBank5 = [""]
-    let colBank6 = [""]
-    let colBank7 = [""]
+    let colBank1 = ["1 thump TRIGGER.wav", "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "5 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none", "none", "8 rapido su plastica 2 TRIGGER.wav", "9 thump TRIGGER.aiff"]
+    
+    let colBank2 = ["1 lento polistirolo 1 stretch.wav", "2 distacco da polistirolo lento TRIGGER. wav", "3 lento polistirolo 2 stretch.wav", "4 distacco da polistirolo lento TRIGGER.wav", "5 superball grande 1.wav", "none", "none", "8 superball piccola 2.wav", "9 armonico grave multifonico TRIGGER.wav"]
+    
+    let colBank3 = ["1 righello verticale la.wav", "none", "3_1 acciaccatura + battuto cluster 1 TRIGGER.wav", "4_1 acciaccatura + battuto la f TRIGGER.wav", "5 superball grande 1.wav", "none", "none", "8 superball piccola 2.wav", "none"]
+    
+    let colBank4 = ["1 woodblock 2 TRIGGER.aif", "2 acuto stoppato 1 nota TRIGGER.wav", "3 acuto stoppato 1 nota TRIGGER.wav", "4 woodblock 3 TRIGGER.aif", "5 woodblock 1 TRIGGER.aif", "6 acuto stoppato 1 nota TRIGGER.wav", "7 acuto stoppato 1 nota TRIGGER.wav", "8 woodblock 4 TRIGGER.aif", "PA_1pendola tac TRIGGER.wav"]
+    
+    let colBank5 = ["1 acuto stoppato 3 note TRIGGER.wav", "2 acuto stoppato 1 nota TRIGGER.wav", "3 acuto stoppato 1 nota TRIGGER.wav", "4 acuto stoppato 3 note TRIGGER.wav", "5 acuto stoppato 3 note TRIGGER.wav", "6 acuto stoppato 1 nota TRIGGER.wav", "7 acuto stoppato 1 nota TRIGGER.wav", "8 acuto stoppato 3 note TRIGGER.wav", "none"]
+    
+    let colBank6 = ["1 acuto stoppato 3 note TRIGGER.wav", "2 acuto stoppato 4 note TRIGGER.wav", "3 acuto stoppato 4 note TRIGGER.wav", "4 acuto stoppato 3 note TRIGGER.wav", "5 acuto stoppato 3 note TRIGGER.wav", "6 acuto stoppato 4 note TRIGGER.wav", "7 acuto stoppato 4 note TRIGGER.wav", "8 acuto stoppato 3 note TRIGGER.wav", "PA pioggia di aghi.wav"]
+    
+    let colBank7 = ["1 pendola tac TRIGGER.wav", "2 pendola tic TRIGGER.wav", "3 pendola tac TRIGGER.wav", "4 pendola tic TRIGGER.wav", "5 pendola tac TRIGGER.wav", "6 pendola tic TRIGGER.wav", "7 pendola tac TRIGGER.wav", "8 pendola tic TRIGGER.wav", "9 righello pendolo cresc TRIGGER.wav"]
     
     init(name: String) {
         
@@ -190,26 +196,30 @@ class User {
                 break
             }
             
-            let file = try! AKAudioFile(readFileName: samples[i])
-            let sampler = ImpulsWaveTable(file: file)
-            samplers.append(sampler)
-            samplers[i].loopEnabled = true
-            samplers[i].volume = 0
+            let sampleName = samples[i]
             
-            if conductor.config == "Sax" {
-                if i < mixerSplitIdx {
-                    samplers[i] >>> mixer1
+            if sampleName != "none" {
+                
+                let file = try! AKAudioFile(readFileName: sampleName)
+                let sampler = ImpulsWaveTable(file: file)
+                samplers.append(sampler)
+                samplers[i].loopEnabled = true
+                samplers[i].volume = 0
+                
+                if conductor.config == "Sax" {
+                    if i < mixerSplitIdx {
+                        samplers[i] >>> mixer1
+                    } else {
+                        samplers[i] >>> mixer2
+                    }
                 } else {
-                    samplers[i] >>> mixer2
+                    samplers[i] >>> pan
                 }
-            } else {
-                samplers[i] >>> pan
+                
+                samplers[i].play()
+                
             }
-            
-            samplers[i].play()
-            
         }
-        
 
     }
     
