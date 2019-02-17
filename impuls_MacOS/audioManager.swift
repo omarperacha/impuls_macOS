@@ -148,7 +148,9 @@ class User {
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
-    let colBank1 = ["1 thump 1 TRIGGER.wav", "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "5 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none", "none", "8 rapido su plastica 2 TRIGGER.wav", "9 thump TRIGGER.aiff"]
+    let colBank1 = [//"1 thump 1 TRIGGER.wav",
+                    "9 thump reverb TRIGGER.aif",
+                    "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "5 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none", "none", "8 rapido su plastica 2 TRIGGER.wav", "9 thump reverb TRIGGER.aif"]
     
     let colBank2 = ["1 lento polistirolo 1 stretch.wav", "2 distacco da polistirolo lento TRIGGER. wav", "3 lento polistirolo 2 stretch.wav", "4 distacco da polistirolo lento TRIGGER.wav", "5 superball grande 1.wav", "none", "none", "8 superball piccola 2.wav", "9 armonico grave multifonico TRIGGER.wav"]
     
@@ -327,13 +329,11 @@ class ImpulsWaveTable: AKWaveTable {
                     self.volume = 1
                     self.play(from: 0)
                     self.triggered = true
-                } else {
-                    self.volume = 0
-                    self.triggered = false
                 }
-                
+            } else {
+                self.volume = 0
+                self.triggered = false
             }
-            
         }
         
     }
