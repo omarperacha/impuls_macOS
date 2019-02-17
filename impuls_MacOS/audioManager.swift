@@ -231,7 +231,7 @@ class User {
     
     func updateAmp(idx: Int, valDouble: Double, mixer: Double){
         
-        if samplers.count < 1 {
+        if samplers.count <= idx  {
             return
         }
         
