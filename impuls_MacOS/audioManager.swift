@@ -144,7 +144,7 @@ class User {
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
-    let colSamples = ["lento su plastica 1 stretch.wav", "superball grande 1.wav",  "acciaccatura + battuto cluster 1.wav", "acuto stoppato 1 nota.wav",  "bump.wav" , "exhale 1 stretch.wav"]
+    let colSamples = ["lento su plastica 1 stretch.wav", "superball grande 1.wav",  "acciaccatura + battuto cluster 1.wav", "exhale 1 stretch.wav", "acuto stoppato 1 nota.wav",  "bump.wav"]
     
     init() {
         

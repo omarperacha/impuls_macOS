@@ -12,7 +12,6 @@
 		5956B7972213382000BE9235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5956B7962213382000BE9235 /* Assets.xcassets */; };
 		5956B79A2213382000BE9235 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5956B7982213382000BE9235 /* Main.storyboard */; };
 		5956B7A32213388900BE9235 /* multiPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7A22213388900BE9235 /* multiPeer.swift */; };
-		5956B7A622133A1700BE9235 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5956B7A522133A1700BE9235 /* NetworkExtension.framework */; };
 		5956B7A822133B3C00BE9235 /* audioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7A722133B3C00BE9235 /* audioManager.swift */; };
 		595B5BD5221712D300B2C514 /* multiphonic1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BCD221712D200B2C514 /* multiphonic1.wav */; };
 		595B5BD6221712D300B2C514 /* multiphonic4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BCE221712D200B2C514 /* multiphonic4.wav */; };
@@ -41,7 +40,6 @@
 		5956B79B2213382000BE9235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5956B79C2213382000BE9235 /* impuls_MacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = impuls_MacOS.entitlements; sourceTree = "<group>"; };
 		5956B7A22213388900BE9235 /* multiPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multiPeer.swift; sourceTree = "<group>"; };
-		5956B7A522133A1700BE9235 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		5956B7A722133B3C00BE9235 /* audioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioManager.swift; sourceTree = "<group>"; };
 		595B5BCD221712D200B2C514 /* multiphonic1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic1.wav; sourceTree = "<group>"; };
 		595B5BCE221712D200B2C514 /* multiphonic4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic4.wav; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5956B7A622133A1700BE9235 /* NetworkExtension.framework in Frameworks */,
 				A86EA248A9C469E0DC30E15B /* Pods_impuls_MacOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,7 +129,6 @@
 		5956B7A422133A1700BE9235 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5956B7A522133A1700BE9235 /* NetworkExtension.framework */,
 				47B01E6B42DCA25F6E59606C /* Pods_impuls_MacOS.framework */,
 			);
 			name = Frameworks;
@@ -182,7 +178,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.NetworkExtensions = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -403,7 +399,7 @@
 			baseConfigurationReference = C305FB05AAB8D9FE068DAB7C /* Pods-impuls_MacOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = impuls_MacOS/impuls_MacOS.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 255A692Y6K;
@@ -414,6 +410,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.impuls-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -423,7 +420,7 @@
 			baseConfigurationReference = AE84462B96D08DB740A1A90C /* Pods-impuls_MacOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = impuls_MacOS/impuls_MacOS.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 255A692Y6K;
@@ -434,6 +431,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.impuls-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
