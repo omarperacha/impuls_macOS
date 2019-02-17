@@ -20,7 +20,9 @@ class AudioManager {
     
     var config = "Column"
     
-    let configDict = ["Sax":8, "Column": 4, "Game": 8]
+    let configDict = ["Sax":8, "Column": 2, "Game": 8]
+    
+    let usernames = ["User1", "User2",  "User3",  "User4", "User5"]
     
     
     func setup() {
@@ -44,8 +46,7 @@ class AudioManager {
     
     func initUser(name: String) {
         
-        let newUser = User()
-        newUser.name = name
+        let newUser = User(name: name)
         users.append(newUser)
         
     }
@@ -136,8 +137,9 @@ class User {
     let mixerSplitIdx = 4
     var numOscs = 8
     var oscillators = [AKOscillator]()
-    var samplers = [AKWaveTable]()
+    var samplers = [ImpulsWaveTable]()
     var distanceThresh = 0.4
+    var currentBank = 1
     
     var mixer1 = AKMixer()
     var mixer2 = AKMixer()
@@ -146,9 +148,17 @@ class User {
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
-    let colSamples = ["lento su plastica 1 stretch.wav", "superball grande 1.wav",  "acciaccatura + battuto cluster 1.wav", "exhale 1 stretch.wav", "acuto stoppato 1 nota.wav",  "bump.wav"]
+    let colBank1 = [""]
+    let colBank2 = [""]
+    let colBank3 = [""]
+    let colBank4 = [""]
+    let colBank5 = [""]
+    let colBank6 = [""]
+    let colBank7 = [""]
     
-    init() {
+    init(name: String) {
+        
+        self.name = name
         
         conductor.lock.lock()
         defer {
@@ -166,18 +176,22 @@ class User {
         
         for i in 0 ..< numOscs {
             
+            if name == conductor.usernames[4] && i > 0 {
+                return
+            }
+            
             var samples = [""]
             switch conductor.config {
             case "Sax":
                 samples = saxSamples
             case "Column":
-                samples = colSamples
+                samples = getColSamples(bank: currentBank)
             default:
                 break
             }
             
             let file = try! AKAudioFile(readFileName: samples[i])
-            let sampler = AKWaveTable(file: file)
+            let sampler = ImpulsWaveTable(file: file)
             samplers.append(sampler)
             samplers[i].loopEnabled = true
             samplers[i].volume = 0
@@ -207,7 +221,7 @@ class User {
         
         let normalisedVal = Double(1 - (abs(valDouble)/distanceThresh))
         
-        samplers[idx].volume = normalisedVal
+        samplers[idx].updateVol(newVol: normalisedVal)
         print("000_ \(idx) volume: \(samplers[idx].volume)")
         
         if conductor.config == "Sax" {
@@ -219,6 +233,31 @@ class User {
         }
         
        
+    }
+    
+    func getColSamples(bank: Int) -> [String]{
+        var samples = [""]
+        
+        let banks = [colBank1, colBank2, colBank3, colBank4, colBank5, colBank6, colBank7]
+        
+        let colBank = banks[bank - 1]
+        
+        switch name {
+        case conductor.usernames[0]:
+            samples = [colBank[0], colBank[1]]
+        case conductor.usernames[1]:
+            samples = [colBank[2], colBank[3]]
+        case conductor.usernames[2]:
+            samples = [colBank[4], colBank[5]]
+        case conductor.usernames[3]:
+            samples = [colBank[6], colBank[7]]
+        case conductor.usernames[4]:
+            samples = [colBank[8]]
+        default:
+            break
+        }
+        
+        return samples
     }
     
     func mute(){
@@ -255,11 +294,30 @@ class User {
     
 }
 
-class ImpulsBell: AKTubularBells {
+class ImpulsWaveTable: AKWaveTable {
     
+    var oneShot = false
     var triggered = false
     
-    init(){
-        super.init()
+    func updateVol(newVol: Double){
+        
+        if !oneShot {
+            self.volume = newVol
+        } else {
+            
+            if !self.triggered{
+                
+                if newVol > 0 {
+                    self.volume = 1
+                    self.triggered = true
+                } else {
+                    self.volume = 0
+                    self.triggered = false
+                }
+                
+            }
+            
+        }
+        
     }
 }
