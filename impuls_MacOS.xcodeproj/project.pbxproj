@@ -69,7 +69,6 @@
 		59C7CD892219CD8900D8B98D /* 4 pendola tic TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD7F2219CD8900D8B98D /* 4 pendola tic TRIGGER.wav */; };
 		59C7CD8A2219CD8900D8B98D /* 1 pendola tac TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD802219CD8900D8B98D /* 1 pendola tac TRIGGER.wav */; };
 		59C7CD8B2219CD8900D8B98D /* 8 pendola tic TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD812219CD8900D8B98D /* 8 pendola tic TRIGGER.wav */; };
-		59C7CD8D221A0E4300D8B98D /* impulsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C7CD8C221A0E4200D8B98D /* impulsPlayer.swift */; };
 		A86EA248A9C469E0DC30E15B /* Pods_impuls_MacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B01E6B42DCA25F6E59606C /* Pods_impuls_MacOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,7 +139,6 @@
 		59C7CD7F2219CD8900D8B98D /* 4 pendola tic TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "4 pendola tic TRIGGER.wav"; sourceTree = "<group>"; };
 		59C7CD802219CD8900D8B98D /* 1 pendola tac TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "1 pendola tac TRIGGER.wav"; sourceTree = "<group>"; };
 		59C7CD812219CD8900D8B98D /* 8 pendola tic TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "8 pendola tic TRIGGER.wav"; sourceTree = "<group>"; };
-		59C7CD8C221A0E4200D8B98D /* impulsPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = impulsPlayer.swift; path = /Users/omarperacha/impuls_MacOS/impuls_MacOS/impulsPlayer.swift; sourceTree = "<absolute>"; };
 		AE84462B96D08DB740A1A90C /* Pods-impuls_MacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-impuls_MacOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-impuls_MacOS/Pods-impuls_MacOS.release.xcconfig"; sourceTree = "<group>"; };
 		C305FB05AAB8D9FE068DAB7C /* Pods-impuls_MacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-impuls_MacOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-impuls_MacOS/Pods-impuls_MacOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,7 +207,6 @@
 				5956B79B2213382000BE9235 /* Info.plist */,
 				5956B79C2213382000BE9235 /* impuls_MacOS.entitlements */,
 				5956B7A722133B3C00BE9235 /* audioManager.swift */,
-				59C7CD8C221A0E4200D8B98D /* impulsPlayer.swift */,
 			);
 			path = impuls_MacOS;
 			sourceTree = "<group>";
@@ -485,7 +482,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C7CD8D221A0E4300D8B98D /* impulsPlayer.swift in Sources */,
 				5956B7A32213388900BE9235 /* multiPeer.swift in Sources */,
 				5956B7952213381F00BE9235 /* ViewController.swift in Sources */,
 				5956B7A822133B3C00BE9235 /* audioManager.swift in Sources */,
