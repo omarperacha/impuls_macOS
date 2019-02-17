@@ -203,8 +203,14 @@ class User {
                 let file = try! AKAudioFile(readFileName: sampleName)
                 let sampler = ImpulsWaveTable(file: file)
                 samplers.append(sampler)
-                samplers[i].loopEnabled = true
                 samplers[i].volume = 0
+                
+                if sampleName.contains("TRIGGER") {
+                    samplers[i].oneShot = true
+                    samplers[i].loopEnabled = false
+                } else {
+                    samplers[i].loopEnabled = true
+                }
                 
                 if conductor.config == "Sax" {
                     if i < mixerSplitIdx {
@@ -319,6 +325,7 @@ class ImpulsWaveTable: AKWaveTable {
                 
                 if newVol > 0 {
                     self.volume = 1
+                    self.play(from: 0)
                     self.triggered = true
                 } else {
                     self.volume = 0
