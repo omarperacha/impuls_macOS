@@ -147,11 +147,12 @@ class User {
     
     var pan = AKPanner()
     var pan2 = AKPanner()
+    let ampTrack = AKAmplitudeTracker()
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
-    let colBank1 = [//"1 thump 1 TRIGGER.wav",
-                    "9 thump reverb TRIGGER.aif",
+    let colBank1 = [
+                    "1 thump 1 TRIGGER.wav",
                     "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "5 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none", "none", "8 rapido su plastica 2 TRIGGER.wav", "9 thump reverb TRIGGER.aif"]
     
     let colBank2 = ["1 lento polistirolo 1 stretch.wav", "2 distacco da polistirolo lento TRIGGER. wav", "3 lento polistirolo 2 stretch.wav", "4 distacco da polistirolo lento TRIGGER.wav", "5 superball grande 1.wav", "none", "none", "8 superball piccola 2.wav", "9 armonico grave multifonico TRIGGER.wav"]
@@ -183,6 +184,7 @@ class User {
         } else if conductor.config == "Column" {
             pan >>> conductor.mixer
             pan2 >>> conductor.mixer
+            synth >>> pan2
         }
         
         for i in 0 ..< numOscs {
@@ -232,13 +234,13 @@ class User {
                     if i < 1 {
                         samplers[i] >>> pan
                     } else {
-                        samplers[i] >>> pan2
+                        //samplers[i] >>> pan2
                     }
                 }
                 
-                samplers[i].play()
-                
+                //samplers[i].play()
             }
+            synth.trigger(frequency: 200, amplitude: 1)
         }
 
     }
@@ -252,7 +254,7 @@ class User {
         let normalisedVal = Double(1 - (abs(valDouble)/distanceThresh))
         
         samplers[idx].updateVol(newVol: normalisedVal)
-        print("000_ \(idx) volume: \(samplers[idx].volume)")
+        //print("000_ \(idx) volume: \(normalisedVal)")
         
         if conductor.config == "Sax" {
             
@@ -398,9 +400,10 @@ class ImpulsWaveTable: AKWaveTable {
                 
                 if newVol > 0 {
                     self.triggered = true
-                    self.volume = 1
-                    self.play(from: 0)
+                    //self.volume = 1
+                    //self.play(from: 0)
                     print("TRIGGER")
+                    owner.synth.trigger(frequency: 200, amplitude: 1)
                 }
             } else if newVol <= 0 {
                 self.triggered = false
@@ -411,4 +414,5 @@ class ImpulsWaveTable: AKWaveTable {
         
     }
 }
+
 
