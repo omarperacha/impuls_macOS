@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		594652A5221AFEF30005E240 /* 5 Traffic bounce.aif in Resources */ = {isa = PBXBuildFile; fileRef = 594652A0221AFEF30005E240 /* 5 Traffic bounce.aif */; };
+		594652A6221AFEF30005E240 /* 3 papers_bip.aif in Resources */ = {isa = PBXBuildFile; fileRef = 594652A1221AFEF30005E240 /* 3 papers_bip.aif */; };
+		594652A7221AFEF30005E240 /* 4 Suspiro bounce.aif in Resources */ = {isa = PBXBuildFile; fileRef = 594652A2221AFEF30005E240 /* 4 Suspiro bounce.aif */; };
+		594652A8221AFEF30005E240 /* 1 Beep low compressed bounce.aif in Resources */ = {isa = PBXBuildFile; fileRef = 594652A3221AFEF30005E240 /* 1 Beep low compressed bounce.aif */; };
+		594652A9221AFEF30005E240 /* 2 bird market process_bip.aif in Resources */ = {isa = PBXBuildFile; fileRef = 594652A4221AFEF30005E240 /* 2 bird market process_bip.aif */; };
 		5956B7932213381F00BE9235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7922213381F00BE9235 /* AppDelegate.swift */; };
 		5956B7952213381F00BE9235 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7942213381F00BE9235 /* ViewController.swift */; };
 		5956B7972213382000BE9235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5956B7962213382000BE9235 /* Assets.xcassets */; };
@@ -89,6 +94,11 @@
 
 /* Begin PBXFileReference section */
 		47B01E6B42DCA25F6E59606C /* Pods_impuls_MacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_impuls_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		594652A0221AFEF30005E240 /* 5 Traffic bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5 Traffic bounce.aif"; sourceTree = "<group>"; };
+		594652A1221AFEF30005E240 /* 3 papers_bip.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "3 papers_bip.aif"; sourceTree = "<group>"; };
+		594652A2221AFEF30005E240 /* 4 Suspiro bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "4 Suspiro bounce.aif"; sourceTree = "<group>"; };
+		594652A3221AFEF30005E240 /* 1 Beep low compressed bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1 Beep low compressed bounce.aif"; sourceTree = "<group>"; };
+		594652A4221AFEF30005E240 /* 2 bird market process_bip.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "2 bird market process_bip.aif"; sourceTree = "<group>"; };
 		5956B78F2213381F00BE9235 /* impuls_MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = impuls_MacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5956B7922213381F00BE9235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5956B7942213381F00BE9235 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +194,18 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		5946529F221AFEF30005E240 /* Another stage audio */ = {
+			isa = PBXGroup;
+			children = (
+				594652A0221AFEF30005E240 /* 5 Traffic bounce.aif */,
+				594652A1221AFEF30005E240 /* 3 papers_bip.aif */,
+				594652A2221AFEF30005E240 /* 4 Suspiro bounce.aif */,
+				594652A3221AFEF30005E240 /* 1 Beep low compressed bounce.aif */,
+				594652A4221AFEF30005E240 /* 2 bird market process_bip.aif */,
+			);
+			path = "Another stage audio";
+			sourceTree = "<group>";
+		};
 		5956B7862213381F00BE9235 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +227,7 @@
 		5956B7912213381F00BE9235 /* impuls_MacOS */ = {
 			isa = PBXGroup;
 			children = (
+				5946529F221AFEF30005E240 /* Another stage audio */,
 				5944FA912215BC6B00E24B4D /* Sounds */,
 				59C7CD112219CD3B00D8B98D /* bank 1 */,
 				59C7CD202219CD4500D8B98D /* bank 2 */,
@@ -404,9 +427,12 @@
 				59C7CD3A2219CD5B00D8B98D /* 4_2 acciaccatura + battuto la p TRIGGER.wav in Resources */,
 				595B5BD5221712D300B2C514 /* multiphonic1.wav in Resources */,
 				59C7CD372219CD5B00D8B98D /* 3_1 acciaccatura + battuto cluster 1 TRIGGER.wav in Resources */,
+				594652A5221AFEF30005E240 /* 5 Traffic bounce.aif in Resources */,
 				59C7CD192219CD3B00D8B98D /* 4 lento su plastica 2 stretch.wav in Resources */,
+				594652A8221AFEF30005E240 /* 1 Beep low compressed bounce.aif in Resources */,
 				59C7CD2E2219CD4500D8B98D /* 5 superball grande 1.wav in Resources */,
 				59C7CD622219CD7700D8B98D /* 8 acuto stoppato 3 note TRIGGER.wav in Resources */,
+				594652A7221AFEF30005E240 /* 4 Suspiro bounce.aif in Resources */,
 				59C7CD732219CD7F00D8B98D /* 2 acuto stoppato 4 note TRIGGER.wav in Resources */,
 				59C7CD832219CD8900D8B98D /* 9 righello pendolo cresc TRIGGER.wav in Resources */,
 				595B5BDA221712D300B2C514 /* multiphonic2.wav in Resources */,
@@ -438,6 +464,7 @@
 				595B5BD7221712D300B2C514 /* multiphonic7.wav in Resources */,
 				595B5BDC221712D300B2C514 /* multiphonic6.wav in Resources */,
 				59C7CD282219CD4500D8B98D /* 2 distacco da polistirolo lento TRIGGER.wav in Resources */,
+				594652A9221AFEF30005E240 /* 2 bird market process_bip.aif in Resources */,
 				59C7CD852219CD8900D8B98D /* 7 pendola tac TRIGGER.wav in Resources */,
 				59C7CD3D2219CD5B00D8B98D /* 3_2 acciaccatura + battuto cluster 2 TRIGGER.wav in Resources */,
 				59C7CD1C2219CD3B00D8B98D /* 9 thump reverb TRIGGER.aif in Resources */,
@@ -447,6 +474,7 @@
 				59C7CD862219CD8900D8B98D /* 3 pendola tac TRIGGER.wav in Resources */,
 				59C7CD4D2219CD6900D8B98D /* 2 acuto stoppato 1 nota TRIGGER.wav in Resources */,
 				59C7CD892219CD8900D8B98D /* 4 pendola tic TRIGGER.wav in Resources */,
+				594652A6221AFEF30005E240 /* 3 papers_bip.aif in Resources */,
 				59C7CD4C2219CD6900D8B98D /* 1 woodblock 2 TRIGGER.aif in Resources */,
 				59C7CD2C2219CD4500D8B98D /* 3 lento polistirolo 2 stretch.wav in Resources */,
 				5956B79A2213382000BE9235 /* Main.storyboard in Resources */,

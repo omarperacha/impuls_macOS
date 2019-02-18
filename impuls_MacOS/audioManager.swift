@@ -158,7 +158,7 @@ class User {
     
     var pan = AKPanner()
     
-    let outdoorSamples = [""]
+    let outdoorSamples = ["1 Beep low compressed bounce.aif", "2 bird market process_bip.aif", "3 papers_bip.aif", "4 Suspiro bounce.aif", "5 Traffic bounce.aif"]
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
