@@ -20,7 +20,7 @@ class AudioManager {
     
     var config = "Column"
     
-    let configDict = ["Sax":8, "Column": 2, "Game": 8]
+    let configDict = ["Sax":8, "Column": 2, "Outdoor": 5]
     
     let usernames = ["Omar Peracha’s iPhone", "User2",  "User3",  "User4", "User5"]
     
@@ -157,6 +157,8 @@ class User {
     
     var pan = AKPanner()
     
+    let outdoorSamples = [""]
+    
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
     let colBank1 = [
@@ -193,6 +195,8 @@ class User {
             masterMixer >>> pan >>> conductor.mixer
             mixer1 >>> masterMixer
             mixer2 >>> masterMixer
+        } else if conductor.config == "Outdoor" {
+            mixer1 >>> conductor.mixer
         }
         
         for i in 0 ..< numOscs {
@@ -207,6 +211,8 @@ class User {
                 samples = saxSamples
             case "Column":
                 samples = getColSamples(bank: currentBank)
+            case "Outdoor":
+                samples = outdoorSamples
             default:
                 break
             }
@@ -236,7 +242,7 @@ class User {
                     } else {
                         samplers[i] >>> mixer2
                     }
-                } else {
+                } else if conductor.config == "Column" {
                     print("000_ \(i) ONE SHOT: \(samplers[i].oneShot)")
                     if i < 1 {
                         if !samplers[i].oneShot {
@@ -253,6 +259,8 @@ class User {
                             synth >>> mixer2
                         }
                     }
+                } else if conductor.config == "Outdoor" {
+                    samplers[i] >>> mixer1
                 }
             }
             do {try synth.play()} catch {print(error.localizedDescription)}
