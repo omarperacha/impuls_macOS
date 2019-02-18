@@ -145,7 +145,7 @@ class User {
     let mixerSplitIdx = 4
     var numOscs = 8
     var oscillators = [AKOscillator]()
-    var synth = AKTubularBells()
+    var synth = AKAppleSampler()
     var samplers = [ImpulsWaveTable]()
     var distanceThresh = 0.4
     var currentBank = 1
@@ -192,7 +192,6 @@ class User {
         } else if conductor.config == "Column" {
             pan >>> conductor.mixer
             pan2 >>> conductor.mixer
-            synth >>> pan2
         }
         
         for i in 0 ..< numOscs {
@@ -226,6 +225,7 @@ class User {
                 if sampleName.contains("TRIGGER") {
                     samplers[i].oneShot = true
                     samplers[i].loopEnabled = true
+                    do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
                 } else {
                     samplers[i].loopEnabled = true
                      samplers[i].oneShot = false
@@ -240,15 +240,23 @@ class User {
                     }
                 } else {
                     if i < 1 {
-                        samplers[i] >>> pan
+                        if samplers[i].oneShot {
+                            samplers[i] >>> pan
+                            samplers[i].play()
+                        } else {
+                            synth >>> pan
+                        }
                     } else {
-                        //samplers[i] >>> pan2
+                        if samplers[i].oneShot {
+                            samplers[i] >>> pan2
+                            samplers[i].play()
+                        } else {
+                            synth >>> pan2
+                        }
                     }
                 }
-                
-                //samplers[i].play()
             }
-            synth.trigger(frequency: 200, amplitude: 1)
+            do {try synth.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
         }
 
     }
@@ -408,15 +416,11 @@ class ImpulsWaveTable: AKWaveTable {
                 
                 if newVol > 0 {
                     self.triggered = true
-                    //self.volume = 1
-                    //self.play(from: 0)
                     print("TRIGGER")
-                    owner.synth.trigger(frequency: 200, amplitude: 1)
+                    do {try owner.synth.play(noteNumber: 40, velocity: 127)} catch {print(error.localizedDescription)}
                 }
             } else if newVol <= 0 {
                 self.triggered = false
-                //self.volume = 0
-                //self.stop()
             }
         }
         
