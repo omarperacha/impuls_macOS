@@ -14,6 +14,8 @@ class AudioManager {
     let lock = NSLock()
     private var audioKitRunning = false
     
+    var vc : ViewController?
+    
     var mixer = AKMixer()
     
     var users = [User]()
@@ -303,12 +305,16 @@ class User {
         switch name {
         case conductor.usernames[0]:
             samples = [colBank[0], colBank[1]]
+            pan.pan = (-1)
         case conductor.usernames[1]:
             samples = [colBank[2], colBank[3]]
+            pan.pan = (1)
         case conductor.usernames[2]:
             samples = [colBank[4], colBank[5]]
+            pan.pan = (-1)
         case conductor.usernames[3]:
             samples = [colBank[6], colBank[7]]
+            pan.pan = (1)
         case conductor.usernames[4]:
             samples = [colBank[8]]
         default:
@@ -429,6 +435,7 @@ class User {
         
         oscillators.removeAll()
         samplers.removeAll()
+        
     }
     
     

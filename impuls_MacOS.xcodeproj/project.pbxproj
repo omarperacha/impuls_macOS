@@ -93,7 +93,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		47B01E6B42DCA25F6E59606C /* Pods_impuls_MacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_impuls_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		594652A0221AFEF30005E240 /* 5 Traffic bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5 Traffic bounce.aif"; sourceTree = "<group>"; };
 		594652A1221AFEF30005E240 /* 3 papers_bip.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "3 papers_bip.aif"; sourceTree = "<group>"; };
 		594652A2221AFEF30005E240 /* 4 Suspiro bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "4 Suspiro bounce.aif"; sourceTree = "<group>"; };
@@ -251,7 +250,6 @@
 		5956B7A422133A1700BE9235 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				47B01E6B42DCA25F6E59606C /* Pods_impuls_MacOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

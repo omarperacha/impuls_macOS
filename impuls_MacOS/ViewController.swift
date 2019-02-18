@@ -7,6 +7,8 @@
 //
 
 import Cocoa
+import MultipeerConnectivity
+
 
 let conductor = AudioManager()
 
@@ -21,6 +23,23 @@ class ViewController: NSViewController {
         audioService.entryDict[string] = Bool(truncating: OPCheckBox.state.rawValue as NSNumber)
     }
     
+    @IBOutlet weak var OPStatus: NSButton!
+    
+    @IBAction func OPConnectButton(_ sender: Any) {
+        if OPStatus.title == "Manual Connect" {
+            var peerId : MCPeerID?
+            for peer in audioService.nearbyPeers{
+                if peer.displayName == "Omar Peracha’s iPhone" {
+                    peerId = peer
+                    break
+                }
+            }
+            if peerId == nil {return}
+            print(peerId!)
+            audioService.serviceBrowser.invitePeer(peerId!, to: audioService.session, withContext: nil, timeout: 10)
+        }
+    }
+    
     @IBOutlet weak var VSCheckBox: NSButton!
     
     @IBAction func toggleVS(_ sender: Any) {
@@ -28,11 +47,15 @@ class ViewController: NSViewController {
         audioService.entryDict[string] = Bool(truncating: VSCheckBox.state.rawValue as NSNumber)
     }
     
+    @IBOutlet weak var VSStatus: NSButton!
+    
+    @IBAction func VSConnectButton(_ sender: Any) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        conductor.vc = self
         audioService.delegate = self
         conductor.setup()
 
@@ -59,6 +82,24 @@ extension ViewController : AudioServiceDelegate {
     func distanceChanged(manager: AudioService, distance: String) {
         OperationQueue.main.addOperation {
             conductor.updateSound(input: distance)
+        }
+    }
+    
+    func lostPeer(ID: String){
+        switch ID {
+        case "i":
+            break
+        default:
+            break
+        }
+    }
+    
+    func newPeer(ID: String){
+        switch ID {
+        case "i":
+            break
+        default:
+            break
         }
     }
     

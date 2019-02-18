@@ -730,17 +730,43 @@
                                     <action selector="toggleVS:" target="XfG-lQ-9wD" id="ZYN-4i-mtr"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fTY-BD-Ugu">
+                                <rect key="frame" x="314" y="225" width="139" height="32"/>
+                                <buttonCell key="cell" type="push" title="Manual Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2LV-25-0vx">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="OPConnectButton:" target="XfG-lQ-9wD" id="R4x-Hq-5Ek"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LmS-x0-LcD">
+                                <rect key="frame" x="314" y="195" width="139" height="32"/>
+                                <buttonCell key="cell" type="push" title="Manual Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="spl-f2-XJ3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="VSConnectButton:" target="XfG-lQ-9wD" id="MNs-8E-MpJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Gmz-dT-5od" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="2Hj-R8-ZOt"/>
                             <constraint firstItem="M2m-JT-jek" firstAttribute="top" secondItem="Gmz-dT-5od" secondAttribute="bottom" constant="16" id="5bM-ma-w49"/>
+                            <constraint firstAttribute="trailing" secondItem="fTY-BD-Ugu" secondAttribute="trailing" constant="33" id="LsP-l4-Kye"/>
+                            <constraint firstItem="fTY-BD-Ugu" firstAttribute="baseline" secondItem="Gmz-dT-5od" secondAttribute="baseline" id="OHw-Cw-s4i"/>
+                            <constraint firstItem="LmS-x0-LcD" firstAttribute="baseline" secondItem="M2m-JT-jek" secondAttribute="baseline" id="PfF-18-IIN"/>
                             <constraint firstItem="M2m-JT-jek" firstAttribute="leading" secondItem="Gmz-dT-5od" secondAttribute="leading" id="sFN-fg-RAG"/>
+                            <constraint firstItem="LmS-x0-LcD" firstAttribute="leading" secondItem="fTY-BD-Ugu" secondAttribute="leading" id="uTG-1a-UcP"/>
                             <constraint firstItem="Gmz-dT-5od" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="vKX-2V-IhP"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="OPCheckBox" destination="Gmz-dT-5od" id="UCU-ML-fds"/>
+                        <outlet property="OPStatus" destination="fTY-BD-Ugu" id="GuZ-lf-PcK"/>
                         <outlet property="VSCheckBox" destination="M2m-JT-jek" id="BQe-hr-keK"/>
+                        <outlet property="VSStatus" destination="LmS-x0-LcD" id="mls-Uv-wvH"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
