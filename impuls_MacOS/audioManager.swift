@@ -22,7 +22,7 @@ class AudioManager {
     
     let configDict = ["Sax":8, "Column": 2, "Outdoor": 5]
     
-    let usernames = ["Omar Peracha’s iPhone", "iPhone von Viva",  "User3",  "User4", "User5"]
+    let usernames = ["iPhone von Viva", "Omar Peracha’s iPhone", "User3",  "User4", "User5"]
     
     
     func setup() {
@@ -147,6 +147,7 @@ class User {
     var numOscs = 8
     var oscillators = [AKOscillator]()
     var synth = AKAppleSampler()
+    var synth2 = AKAppleSampler()
     var samplers = [ImpulsWaveTable]()
     var distanceThresh = 0.4
     var currentBank = 1
@@ -229,7 +230,11 @@ class User {
                 if sampleName.contains("TRIGGER") {
                     samplers[i].oneShot = true
                     samplers[i].loopEnabled = false
-                    do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
+                    if i < 1{
+                        do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
+                    } else {
+                        do {try synth2.loadAudioFile(file)} catch {print("000_ loading error")}
+                    }
                 } else {
                     samplers[i].loopEnabled = true
                     samplers[i].oneShot = false
@@ -255,7 +260,7 @@ class User {
                             samplers[i] >>> mixer2
                             samplers[i].play()
                         } else {
-                            synth >>> mixer2
+                            synth2 >>> mixer2
                         }
                     }
                 } else if conductor.config == "Outdoor" {
@@ -274,7 +279,7 @@ class User {
         
         let normalisedVal = Double(1 - (abs(valDouble)/distanceThresh))
         
-        samplers[idx].updateVol(newVol: normalisedVal)
+        samplers[idx].updateVol(newVol: normalisedVal, idx: idx)
         //print("000_ \(idx) volume: \(normalisedVal)")
         
         if conductor.config == "Sax" {
@@ -323,8 +328,16 @@ class User {
             sampler.stop()
             sampler.detach()
         }
+        
+        if samplers[0].oneShot {
         do {try synth.stop()} catch {print(error.localizedDescription)}
         synth.detach()
+        }
+        
+        if samplers.count > 1 && samplers[1].oneShot {
+        do {try synth2.stop()} catch {print(error.localizedDescription)}
+        synth2.detach()
+        }
         
         samplers.removeAll()
         
@@ -350,7 +363,11 @@ class User {
                 if sampleName.contains("TRIGGER") {
                     samplers[i].oneShot = true
                     samplers[i].loopEnabled = true
-                    do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
+                    if i < 1{
+                        do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
+                    } else {
+                        do {try synth2.loadAudioFile(file)} catch {print("000_ loading error")}
+                    }
                 } else {
                     samplers[i].loopEnabled = true
                     samplers[i].oneShot = false
@@ -369,7 +386,7 @@ class User {
                         samplers[i] >>> mixer2
                         samplers[i].play()
                     } else {
-                        synth >>> mixer2
+                        synth2 >>> mixer2
                     }
                 }
                 
@@ -404,6 +421,12 @@ class User {
         mixer1.detach()
         mixer2.detach()
         
+        if samplers[0].oneShot{
+            synth.detach()}
+        
+        if samplers.count > 1 && samplers[1].oneShot {
+            synth2.detach()}
+        
         oscillators.removeAll()
         samplers.removeAll()
     }
@@ -423,7 +446,7 @@ class ImpulsWaveTable: AKWaveTable {
         self.owner = owner
     }
     
-    func updateVol(newVol: Double){
+    func updateVol(newVol: Double, idx: Int){
         
         if !oneShot {
             self.volume = newVol
@@ -434,7 +457,11 @@ class ImpulsWaveTable: AKWaveTable {
                 if newVol > 0 {
                     self.triggered = true
                     print("TRIGGER")
+                    if idx < 1 {
                     do {try owner.synth.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
+                    } else {
+                        do {try owner.synth2.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
+                    }
                 }
             } else if newVol <= 0 {
                 self.triggered = false
