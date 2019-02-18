@@ -318,6 +318,7 @@ class User {
             sampler.detach()
         }
         do {try synth.stop()} catch {print(error.localizedDescription)}
+        synth.detach()
         
         samplers.removeAll()
         
