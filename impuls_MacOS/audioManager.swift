@@ -217,8 +217,7 @@ class User {
                 break
             }
             
-            let userIndex = conductor.usernames.index(of: name)
-            let sampleName = samples[i + ((userIndex ?? 0) * numOscs)]
+            let sampleName = samples[i]
             
             if sampleName != "none.wav" {
                 
@@ -294,7 +293,7 @@ class User {
         
         let banks = [colBank1, colBank2, colBank3, colBank4, colBank5, colBank6, colBank7]
         
-        let colBank = banks[bank - 1]
+        let colBank = banks[(bank - 1) % banks.count]
         
         switch name {
         case conductor.usernames[0]:
@@ -339,8 +338,7 @@ class User {
             
             let samples = getColSamples(bank: currentBank)
             
-            let userIndex = conductor.usernames.index(of: name)
-            let sampleName = samples[i + ((userIndex ?? 0) * numOscs)]
+            let sampleName = samples[i]
             
             if sampleName != "none.wav" {
                 
