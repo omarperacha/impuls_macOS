@@ -59,6 +59,7 @@ class AudioManager {
             let user = getUser(withName: _input)
             print("000_ setting bank")
             user?.setNextBank()
+            return
         }
 
         let alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -152,18 +153,17 @@ class User {
     
     var mixer1 = AKMixer()
     var mixer2 = AKMixer()
+    var masterMixer = AKMixer()
     
     var pan = AKPanner()
-    var pan2 = AKPanner()
-    let ampTrack = AKAmplitudeTracker()
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
     let colBank1 = [
                     "1 thump 1 TRIGGER.wav",
-                    "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "5 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none", "none", "8 rapido su plastica 2 TRIGGER.wav", "9 thump reverb TRIGGER.aif"]
+                    "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "4 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none", "none", "8 rapido su plastica 2 TRIGGER.wav", "9 thump reverb TRIGGER.aif"]
     
-    let colBank2 = ["1 lento polistirolo 1 stretch.wav", "2 distacco da polistirolo lento TRIGGER. wav", "3 lento polistirolo 2 stretch.wav", "4 distacco da polistirolo lento TRIGGER.wav", "5 superball grande 1.wav", "none", "none", "8 superball piccola 2.wav", "9 armonico grave multifonico TRIGGER.wav"]
+    let colBank2 = ["1 lento polistirolo 1 stretch.wav", "2 distacco da polistirolo lento TRIGGER.wav", "3 lento polistirolo 2 stretch.wav", "4 distacco da polistirolo lento TRIGGER.wav", "5 superball grande 1.wav", "none", "none", "8 superball piccola 2.wav", "9 armonico grave multifonico TRIGGER.wav"]
     
     let colBank3 = ["1 righello verticale la.wav", "none", "3_1 acciaccatura + battuto cluster 1 TRIGGER.wav", "4_1 acciaccatura + battuto la f TRIGGER.wav", "5 superball grande 1.wav", "none", "none", "8 superball piccola 2.wav", "none"]
     
@@ -190,8 +190,9 @@ class User {
             mixer1 >>> conductor.mixer
             mixer2 >>> conductor.mixer
         } else if conductor.config == "Column" {
-            pan >>> conductor.mixer
-            pan2 >>> conductor.mixer
+            masterMixer >>> pan >>> conductor.mixer
+            mixer1 >>> masterMixer
+            mixer2 >>> masterMixer
         }
         
         for i in 0 ..< numOscs {
@@ -221,11 +222,11 @@ class User {
                 
                 if sampleName.contains("TRIGGER") {
                     samplers[i].oneShot = true
-                    samplers[i].loopEnabled = true
+                    samplers[i].loopEnabled = false
                     do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
                 } else {
                     samplers[i].loopEnabled = true
-                     samplers[i].oneShot = false
+                    samplers[i].oneShot = false
                     samplers[i].volume = 0
                 }
                 
@@ -236,19 +237,20 @@ class User {
                         samplers[i] >>> mixer2
                     }
                 } else {
+                    print("000_ \(i) ONE SHOT: \(samplers[i].oneShot)")
                     if i < 1 {
-                        if samplers[i].oneShot {
-                            samplers[i] >>> pan
+                        if !samplers[i].oneShot {
+                            samplers[i] >>> mixer1
                             samplers[i].play()
                         } else {
-                            synth >>> pan
+                            synth >>> mixer1
                         }
                     } else {
-                        if samplers[i].oneShot {
-                            samplers[i] >>> pan2
+                        if !samplers[i].oneShot {
+                            samplers[i] >>> mixer2
                             samplers[i].play()
                         } else {
-                            synth >>> pan2
+                            synth >>> mixer2
                         }
                     }
                 }
@@ -316,7 +318,6 @@ class User {
             sampler.detach()
         }
         do {try synth.stop()} catch {print(error.localizedDescription)}
-        synth.detach()
         
         samplers.removeAll()
         
@@ -350,18 +351,18 @@ class User {
                 }
                 
                 if i < 1 {
-                    if samplers[i].oneShot {
-                        samplers[i] >>> pan
+                    if !samplers[i].oneShot {
+                        samplers[i] >>> mixer1
                         samplers[i].play()
                     } else {
-                        synth >>> pan
+                        synth >>> mixer1
                     }
                 } else {
-                    if samplers[i].oneShot {
-                        samplers[i] >>> pan2
+                    if !samplers[i].oneShot {
+                        samplers[i] >>> mixer2
                         samplers[i].play()
                     } else {
-                        synth >>> pan2
+                        synth >>> mixer2
                     }
                 }
                 
@@ -426,7 +427,7 @@ class ImpulsWaveTable: AKWaveTable {
                 if newVol > 0 {
                     self.triggered = true
                     print("TRIGGER")
-                    do {try owner.synth.play(noteNumber: 40, velocity: 127)} catch {print(error.localizedDescription)}
+                    do {try owner.synth.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
                 }
             } else if newVol <= 0 {
                 self.triggered = false
