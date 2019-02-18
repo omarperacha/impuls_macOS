@@ -216,9 +216,6 @@ class User {
                 
                 let file = try! AKAudioFile(readFileName: sampleName)
                 let sampler = ImpulsWaveTable(owner: self)
-                sampler.completionHandler = {
-                    print("000_ done")
-                }
                 sampler.load(file: file)
                 samplers.append(sampler)
                 
@@ -256,7 +253,7 @@ class User {
                     }
                 }
             }
-            do {try synth.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
+            do {try synth.play()} catch {print(error.localizedDescription)}
         }
 
     }
@@ -318,6 +315,8 @@ class User {
             sampler.stop()
             sampler.detach()
         }
+        do {try synth.stop()} catch {print(error.localizedDescription)}
+        synth.detach()
         
         samplers.removeAll()
         
@@ -342,20 +341,30 @@ class User {
                 
                 if sampleName.contains("TRIGGER") {
                     samplers[i].oneShot = true
-                    samplers[i].loopEnabled = false
-                } else {
-                    samplers[i].oneShot = false
                     samplers[i].loopEnabled = true
+                    do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
+                } else {
+                    samplers[i].loopEnabled = true
+                    samplers[i].oneShot = false
                     samplers[i].volume = 0
                 }
                 
-                if i < 1{
-                    samplers[i] >>> pan
+                if i < 1 {
+                    if samplers[i].oneShot {
+                        samplers[i] >>> pan
+                        samplers[i].play()
+                    } else {
+                        synth >>> pan
+                    }
                 } else {
-                    samplers[i] >>> pan2
+                    if samplers[i].oneShot {
+                        samplers[i] >>> pan2
+                        samplers[i].play()
+                    } else {
+                        synth >>> pan2
+                    }
                 }
                 
-                samplers[i].play()
             }
         }
     }
