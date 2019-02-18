@@ -81,6 +81,12 @@ extension AudioService : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
+        for i in 0 ..< nearbyPeers.count {
+            if nearbyPeers[i].displayName == peerID.displayName {
+                nearbyPeers.remove(at: i)
+                break
+            }
+        }
         nearbyPeers.append(peerID)
         if entryDict[peerID.displayName] ?? false {
             invitationHandler(true, self.session)
@@ -117,13 +123,13 @@ extension AudioService : MCSessionDelegate {
             session.connectedPeers.map{$0.displayName})
         if state.rawValue == 0 {
             conductor.destroyUser(withName: peerID.displayName)
-            conductor.vc.lostPeer(ID: peerID.displayName)
+            conductor.vc!.lostPeer(ID: peerID.displayName)
         } else if state.rawValue == 2 {
             if entryDict[peerID.displayName] ?? false {
                 
             conductor.setup()
             conductor.initUser(name: peerID.displayName)
-                conductor.vc.newPeer(ID: peerID.displayName)
+            conductor.vc!.newPeer(ID: peerID.displayName)
                 
             }
         }
