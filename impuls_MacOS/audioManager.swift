@@ -137,6 +137,7 @@ class User {
     let mixerSplitIdx = 4
     var numOscs = 8
     var oscillators = [AKOscillator]()
+    var synth = AKTubularBells()
     var samplers = [ImpulsWaveTable]()
     var distanceThresh = 0.4
     var currentBank = 1
@@ -145,6 +146,7 @@ class User {
     var mixer2 = AKMixer()
     
     var pan = AKPanner()
+    var pan2 = AKPanner()
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
@@ -180,6 +182,7 @@ class User {
             mixer2 >>> conductor.mixer
         } else if conductor.config == "Column" {
             pan >>> conductor.mixer
+            pan2 >>> conductor.mixer
         }
         
         for i in 0 ..< numOscs {
@@ -203,19 +206,20 @@ class User {
             if sampleName != "none" {
                 
                 let file = try! AKAudioFile(readFileName: sampleName)
-                let sampler = ImpulsWaveTable()
+                let sampler = ImpulsWaveTable(owner: self)
                 sampler.completionHandler = {
                     print("000_ done")
                 }
                 sampler.load(file: file)
                 samplers.append(sampler)
-                samplers[i].volume = 0
                 
                 if sampleName.contains("TRIGGER") {
                     samplers[i].oneShot = true
-                    samplers[i].loopEnabled = false
+                    samplers[i].loopEnabled = true
                 } else {
                     samplers[i].loopEnabled = true
+                     samplers[i].oneShot = false
+                    samplers[i].volume = 0
                 }
                 
                 if conductor.config == "Sax" {
@@ -225,7 +229,11 @@ class User {
                         samplers[i] >>> mixer2
                     }
                 } else {
-                    samplers[i] >>> pan
+                    if i < 1 {
+                        samplers[i] >>> pan
+                    } else {
+                        samplers[i] >>> pan2
+                    }
                 }
                 
                 samplers[i].play()
@@ -310,23 +318,24 @@ class User {
             if sampleName != "none" {
                 
                 let file = try! AKAudioFile(readFileName: sampleName)
-                let sampler = ImpulsWaveTable()
-                sampler.completionHandler = {
-                    print("000_ done")
-                }
+                let sampler = ImpulsWaveTable(owner: self)
                 sampler.load(file: file)
                 samplers.append(sampler)
-                samplers[i].volume = 0
                 
                 if sampleName.contains("TRIGGER") {
                     samplers[i].oneShot = true
-                    samplers[i].loopEnabled = true
-                    print("000_ startine: \(sampler.startPoint), endtime: \(sampler.endPoint)")
+                    samplers[i].loopEnabled = false
                 } else {
+                    samplers[i].oneShot = false
                     samplers[i].loopEnabled = true
+                    samplers[i].volume = 0
                 }
                 
-                samplers[i] >>> pan
+                if i < 1{
+                    samplers[i] >>> pan
+                } else {
+                    samplers[i] >>> pan2
+                }
                 
                 samplers[i].play()
             }
@@ -371,6 +380,13 @@ class ImpulsWaveTable: AKWaveTable {
     
     var oneShot = false
     var triggered = false
+    var owner : User!
+    
+    init(owner: User){
+        super.init()
+        
+        self.owner = owner
+    }
     
     func updateVol(newVol: Double){
         
@@ -381,15 +397,18 @@ class ImpulsWaveTable: AKWaveTable {
             if !self.triggered{
                 
                 if newVol > 0 {
+                    self.triggered = true
                     self.volume = 1
                     self.play(from: 0)
-                    self.triggered = true
+                    print("TRIGGER")
                 }
-            } else {
+            } else if newVol <= 0 {
                 self.triggered = false
-                self.stop()
+                //self.volume = 0
+                //self.stop()
             }
         }
         
     }
 }
+
