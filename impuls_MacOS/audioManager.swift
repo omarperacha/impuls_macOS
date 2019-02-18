@@ -52,6 +52,14 @@ class AudioManager {
     }
     
     func updateSound(input: String){
+        
+        if input.first! == "0" {
+            var _input = input
+            _input.remove(at: _input.startIndex)
+            let user = getUser(withName: _input)
+            print("000_ setting bank")
+            user?.setNextBank()
+        }
 
         let alphabet = "abcdefghijklmnopqrstuvwxyz"
         
