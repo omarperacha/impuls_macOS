@@ -203,7 +203,11 @@ class User {
             if sampleName != "none" {
                 
                 let file = try! AKAudioFile(readFileName: sampleName)
-                let sampler = ImpulsWaveTable(file: file)
+                let sampler = ImpulsWaveTable()
+                sampler.completionHandler = {
+                    print("000_ done")
+                }
+                sampler.load(file: file)
                 samplers.append(sampler)
                 samplers[i].volume = 0
                 
@@ -278,6 +282,57 @@ class User {
         return samples
     }
     
+    func setNextBank(){
+        
+        conductor.lock.lock()
+        defer {
+            conductor.lock.unlock()
+        }
+        for sampler in samplers {
+            sampler.stop()
+            sampler.detach()
+        }
+        
+        samplers.removeAll()
+        
+        currentBank += 1
+        
+        for i in 0 ..< numOscs {
+            
+            if name == conductor.usernames[4] && i > 0 {
+                return
+            }
+            
+            let samples = getColSamples(bank: currentBank)
+            
+            let sampleName = samples[i]
+            
+            if sampleName != "none" {
+                
+                let file = try! AKAudioFile(readFileName: sampleName)
+                let sampler = ImpulsWaveTable()
+                sampler.completionHandler = {
+                    print("000_ done")
+                }
+                sampler.load(file: file)
+                samplers.append(sampler)
+                samplers[i].volume = 0
+                
+                if sampleName.contains("TRIGGER") {
+                    samplers[i].oneShot = true
+                    samplers[i].loopEnabled = true
+                    print("000_ startine: \(sampler.startPoint), endtime: \(sampler.endPoint)")
+                } else {
+                    samplers[i].loopEnabled = true
+                }
+                
+                samplers[i] >>> pan
+                
+                samplers[i].play()
+            }
+        }
+    }
+    
     func mute(){
         for osc in oscillators {
             osc.amplitude = 0
@@ -331,8 +386,8 @@ class ImpulsWaveTable: AKWaveTable {
                     self.triggered = true
                 }
             } else {
-                self.volume = 0
                 self.triggered = false
+                self.stop()
             }
         }
         
