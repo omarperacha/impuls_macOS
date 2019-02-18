@@ -22,7 +22,7 @@ class AudioManager {
     
     let configDict = ["Sax":8, "Column": 2, "Outdoor": 5]
     
-    let usernames = ["Omar Peracha’s iPhone", "User2",  "User3",  "User4", "User5"]
+    let usernames = ["Omar Peracha’s iPhone", "iPhone von Viva",  "User3",  "User4", "User5"]
     
     
     func setup() {
@@ -217,7 +217,8 @@ class User {
                 break
             }
             
-            let sampleName = samples[i]
+            let userIndex = conductor.usernames.index(of: name)
+            let sampleName = samples[i + ((userIndex ?? 0) * numOscs)]
             
             if sampleName != "none.wav" {
                 
@@ -243,7 +244,6 @@ class User {
                         samplers[i] >>> mixer2
                     }
                 } else if conductor.config == "Column" {
-                    print("000_ \(i) ONE SHOT: \(samplers[i].oneShot)")
                     if i < 1 {
                         if !samplers[i].oneShot {
                             samplers[i] >>> mixer1
@@ -263,7 +263,6 @@ class User {
                     samplers[i] >>> mixer1
                 }
             }
-            do {try synth.play()} catch {print(error.localizedDescription)}
         }
 
     }
@@ -340,7 +339,8 @@ class User {
             
             let samples = getColSamples(bank: currentBank)
             
-            let sampleName = samples[i]
+            let userIndex = conductor.usernames.index(of: name)
+            let sampleName = samples[i + ((userIndex ?? 0) * numOscs)]
             
             if sampleName != "none.wav" {
                 

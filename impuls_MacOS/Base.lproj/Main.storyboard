@@ -720,14 +720,27 @@
                                     </connections>
                                 </buttonCell>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M2m-JT-jek">
+                                <rect key="frame" x="18" y="204" width="119" height="18"/>
+                                <buttonCell key="cell" type="check" title="iPhone von Viva" bezelStyle="regularSquare" imagePosition="left" inset="2" id="E45-Id-Or7">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="toggleVS:" target="XfG-lQ-9wD" id="ZYN-4i-mtr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Gmz-dT-5od" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="2Hj-R8-ZOt"/>
+                            <constraint firstItem="M2m-JT-jek" firstAttribute="top" secondItem="Gmz-dT-5od" secondAttribute="bottom" constant="16" id="5bM-ma-w49"/>
+                            <constraint firstItem="M2m-JT-jek" firstAttribute="leading" secondItem="Gmz-dT-5od" secondAttribute="leading" id="sFN-fg-RAG"/>
                             <constraint firstItem="Gmz-dT-5od" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="vKX-2V-IhP"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="OPCheckBox" destination="Gmz-dT-5od" id="UCU-ML-fds"/>
+                        <outlet property="VSCheckBox" destination="M2m-JT-jek" id="BQe-hr-keK"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
