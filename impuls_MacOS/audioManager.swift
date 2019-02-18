@@ -161,15 +161,15 @@ class User {
     
     let colBank1 = [
                     "1 thump 1 TRIGGER.wav",
-                    "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "4 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none", "none", "8 rapido su plastica 2 TRIGGER.wav", "9 thump reverb TRIGGER.aif"]
+                    "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "4 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none.wav", "none.wav", "8 rapido su plastica 2 TRIGGER.wav", "9 thump reverb TRIGGER.aif"]
     
-    let colBank2 = ["1 lento polistirolo 1 stretch.wav", "2 distacco da polistirolo lento TRIGGER.wav", "3 lento polistirolo 2 stretch.wav", "4 distacco da polistirolo lento TRIGGER.wav", "5 superball grande 1.wav", "none", "none", "8 superball piccola 2.wav", "9 armonico grave multifonico TRIGGER.wav"]
+    let colBank2 = ["1 lento polistirolo 1 stretch.wav", "2 distacco da polistirolo lento TRIGGER.wav", "3 lento polistirolo 2 stretch.wav", "4 distacco da polistirolo lento TRIGGER.wav", "5 superball grande 1.wav", "none.wav", "none.wav", "8 superball piccola 2.wav", "9 armonico grave multifonico TRIGGER.wav"]
     
-    let colBank3 = ["1 righello verticale la.wav", "none", "3_1 acciaccatura + battuto cluster 1 TRIGGER.wav", "4_1 acciaccatura + battuto la f TRIGGER.wav", "5 superball grande 1.wav", "none", "none", "8 superball piccola 2.wav", "none"]
+    let colBank3 = ["1 righello verticale la.wav", "none.wav", "3_1 acciaccatura + battuto cluster 1 TRIGGER.wav", "4_1 acciaccatura + battuto la f TRIGGER.wav", "5 superball grande 1.wav", "none.wav", "none.wav", "8 superball piccola 2.wav", "none.wav"]
     
     let colBank4 = ["1 woodblock 2 TRIGGER.aif", "2 acuto stoppato 1 nota TRIGGER.wav", "3 acuto stoppato 1 nota TRIGGER.wav", "4 woodblock 3 TRIGGER.aif", "5 woodblock 1 TRIGGER.aif", "6 acuto stoppato 1 nota TRIGGER.wav", "7 acuto stoppato 1 nota TRIGGER.wav", "8 woodblock 4 TRIGGER.aif", "PA_1pendola tac TRIGGER.wav"]
     
-    let colBank5 = ["1 acuto stoppato 3 note TRIGGER.wav", "2 acuto stoppato 1 nota TRIGGER.wav", "3 acuto stoppato 1 nota TRIGGER.wav", "4 acuto stoppato 3 note TRIGGER.wav", "5 acuto stoppato 3 note TRIGGER.wav", "6 acuto stoppato 1 nota TRIGGER.wav", "7 acuto stoppato 1 nota TRIGGER.wav", "8 acuto stoppato 3 note TRIGGER.wav", "none"]
+    let colBank5 = ["1 acuto stoppato 3 note TRIGGER.wav", "2 acuto stoppato 1 nota TRIGGER.wav", "3 acuto stoppato 1 nota TRIGGER.wav", "4 acuto stoppato 3 note TRIGGER.wav", "5 acuto stoppato 3 note TRIGGER.wav", "6 acuto stoppato 1 nota TRIGGER.wav", "7 acuto stoppato 1 nota TRIGGER.wav", "8 acuto stoppato 3 note TRIGGER.wav", "none.wav"]
     
     let colBank6 = ["1 acuto stoppato 3 note TRIGGER.wav", "2 acuto stoppato 4 note TRIGGER.wav", "3 acuto stoppato 4 note TRIGGER.wav", "4 acuto stoppato 3 note TRIGGER.wav", "5 acuto stoppato 3 note TRIGGER.wav", "6 acuto stoppato 4 note TRIGGER.wav", "7 acuto stoppato 4 note TRIGGER.wav", "8 acuto stoppato 3 note TRIGGER.wav", "PA pioggia di aghi.wav"]
     
@@ -213,7 +213,7 @@ class User {
             
             let sampleName = samples[i]
             
-            if sampleName != "none" {
+            if sampleName != "none.wav" {
                 
                 let file = try! AKAudioFile(readFileName: sampleName)
                 let sampler = ImpulsWaveTable(owner: self)
@@ -334,7 +334,7 @@ class User {
             
             let sampleName = samples[i]
             
-            if sampleName != "none" {
+            if sampleName != "none.wav" {
                 
                 let file = try! AKAudioFile(readFileName: sampleName)
                 let sampler = ImpulsWaveTable(owner: self)
