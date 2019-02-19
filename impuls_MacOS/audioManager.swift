@@ -197,7 +197,7 @@ class User {
     
     let colBank6 = ["1 acuto stoppato 3 note TRIGGER.wav", "2 acuto stoppato 4 note TRIGGER.wav", "3 acuto stoppato 4 note TRIGGER.wav", "4 acuto stoppato 3 note TRIGGER.wav", "5 acuto stoppato 3 note TRIGGER.wav", "6 acuto stoppato 4 note TRIGGER.wav", "7 acuto stoppato 4 note TRIGGER.wav", "8 acuto stoppato 3 note TRIGGER.wav", "PA pioggia di aghi.wav"]
     
-    let colBank7 = ["1 pendola tac TRIGGER.wav", "2 pendola tic TRIGGER.wav", "3 pendola tac TRIGGER.wav", "4 pendola tic TRIGGER.wav", "5 pendola tac TRIGGER.wav", "6 pendola tic TRIGGER.wav", "7 pendola tac TRIGGER.wav", "8 pendola tic TRIGGER.wav", "9 righello pendolo cresc TRIGGER.wav"]
+    let colBank7 = ["1 pendola tac TRIGGER.wav", "3 pendola tac TRIGGER.wav", "2 pendola tic TRIGGER.wav", "4 pendola tic TRIGGER.wav", "5 pendola tac TRIGGER.wav", "7 pendola tac TRIGGER.wav", "6 pendola tic TRIGGER.wav", "8 pendola tic TRIGGER.wav", "9 righello pendolo cresc TRIGGER.wav"]
     
     init(name: String) {
         
