@@ -750,19 +750,50 @@
                                     <action selector="VSConnectButton:" target="XfG-lQ-9wD" id="MNs-8E-MpJ"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dsc-r6-T6n">
+                                <rect key="frame" x="18" y="174" width="112" height="18"/>
+                                <buttonCell key="cell" type="check" title="Markus iPhone" bezelStyle="regularSquare" imagePosition="left" inset="2" id="cgd-Ty-daG">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="toggleMS:" target="XfG-lQ-9wD" id="3G6-0V-9ib"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uww-0H-bdj">
+                                <rect key="frame" x="314" y="165" width="139" height="32"/>
+                                <buttonCell key="cell" type="push" title="Manual Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QP8-3W-bpr">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="MSConnectButton:" target="XfG-lQ-9wD" id="O9F-ep-fEN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Gmz-dT-5od" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="2Hj-R8-ZOt"/>
+                            <constraint firstItem="uww-0H-bdj" firstAttribute="baseline" secondItem="dsc-r6-T6n" secondAttribute="baseline" id="40g-Mu-A5M"/>
                             <constraint firstItem="M2m-JT-jek" firstAttribute="top" secondItem="Gmz-dT-5od" secondAttribute="bottom" constant="16" id="5bM-ma-w49"/>
+                            <constraint firstItem="uww-0H-bdj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LmS-x0-LcD" secondAttribute="leading" id="8m8-TX-MPO"/>
                             <constraint firstAttribute="trailing" secondItem="fTY-BD-Ugu" secondAttribute="trailing" constant="33" id="LsP-l4-Kye"/>
                             <constraint firstItem="fTY-BD-Ugu" firstAttribute="baseline" secondItem="Gmz-dT-5od" secondAttribute="baseline" id="OHw-Cw-s4i"/>
                             <constraint firstItem="LmS-x0-LcD" firstAttribute="baseline" secondItem="M2m-JT-jek" secondAttribute="baseline" id="PfF-18-IIN"/>
+                            <constraint firstItem="fTY-BD-Ugu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gmz-dT-5od" secondAttribute="trailing" constant="8" symbolic="YES" id="UHE-Jt-BWw"/>
+                            <constraint firstItem="uww-0H-bdj" firstAttribute="top" secondItem="LmS-x0-LcD" secondAttribute="bottom" constant="9" id="Wur-gn-WXw"/>
+                            <constraint firstAttribute="trailing" secondItem="uww-0H-bdj" secondAttribute="trailing" constant="33" id="YWs-5t-Fye"/>
+                            <constraint firstItem="uww-0H-bdj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dsc-r6-T6n" secondAttribute="trailing" constant="8" symbolic="YES" id="ae2-dX-UUo"/>
+                            <constraint firstItem="dsc-r6-T6n" firstAttribute="leading" secondItem="M2m-JT-jek" secondAttribute="leading" id="fvj-fx-5XF"/>
+                            <constraint firstItem="LmS-x0-LcD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="M2m-JT-jek" secondAttribute="trailing" constant="8" symbolic="YES" id="iJb-VY-9Q2"/>
+                            <constraint firstAttribute="trailing" secondItem="LmS-x0-LcD" secondAttribute="trailing" constant="33" id="mgM-ko-ggN"/>
                             <constraint firstItem="M2m-JT-jek" firstAttribute="leading" secondItem="Gmz-dT-5od" secondAttribute="leading" id="sFN-fg-RAG"/>
-                            <constraint firstItem="LmS-x0-LcD" firstAttribute="leading" secondItem="fTY-BD-Ugu" secondAttribute="leading" id="uTG-1a-UcP"/>
+                            <constraint firstItem="LmS-x0-LcD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fTY-BD-Ugu" secondAttribute="leading" id="uTG-1a-UcP"/>
                             <constraint firstItem="Gmz-dT-5od" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="vKX-2V-IhP"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="MSCheckbox" destination="dsc-r6-T6n" id="IU2-QI-A6J"/>
+                        <outlet property="MSStatus" destination="uww-0H-bdj" id="iKU-nw-2Eb"/>
                         <outlet property="OPCheckBox" destination="Gmz-dT-5od" id="UCU-ML-fds"/>
                         <outlet property="OPStatus" destination="fTY-BD-Ugu" id="GuZ-lf-PcK"/>
                         <outlet property="VSCheckBox" destination="M2m-JT-jek" id="BQe-hr-keK"/>

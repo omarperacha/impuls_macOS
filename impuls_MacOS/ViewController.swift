@@ -25,6 +25,7 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var OPStatus: NSButton!
     
+    
     @IBAction func OPConnectButton(_ sender: Any) {
         if OPStatus.title == "Manual Connect" {
             var peerId : MCPeerID?
@@ -50,7 +51,44 @@ class ViewController: NSViewController {
     @IBOutlet weak var VSStatus: NSButton!
     
     @IBAction func VSConnectButton(_ sender: Any) {
+        if VSStatus.title == "Manual Connect" {
+            var peerId : MCPeerID?
+            for peer in audioService.nearbyPeers{
+                if peer.displayName == "iPhone von Viva" {
+                    peerId = peer
+                    break
+                }
+            }
+            if peerId == nil {return}
+            print(peerId!)
+            audioService.serviceBrowser.invitePeer(peerId!, to: audioService.session, withContext: nil, timeout: 10)
+        }
     }
+    
+    @IBOutlet weak var MSCheckbox: NSButton!
+    
+    @IBAction func toggleMS(_ sender: Any) {
+        let string = "iPhone"
+        audioService.entryDict[string] = Bool(truncating: VSCheckBox.state.rawValue as NSNumber)
+    }
+    
+    @IBOutlet weak var MSStatus: NSButton!
+    
+    @IBAction func MSConnectButton(_ sender: Any) {
+        if MSStatus.title == "Manual Connect" {
+            var peerId : MCPeerID?
+            for peer in audioService.nearbyPeers{
+                if peer.displayName == "iPhone" {
+                    peerId = peer
+                    break
+                }
+            }
+            if peerId == nil {return}
+            print(peerId!)
+            audioService.serviceBrowser.invitePeer(peerId!, to: audioService.session, withContext: nil, timeout: 10)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,8 +125,18 @@ extension ViewController : AudioServiceDelegate {
     
     func lostPeer(ID: String){
         switch ID {
-        case "i":
-            break
+        case "Omar Peracha’s iPhone":
+            DispatchQueue.main.async {
+                self.OPStatus.title = "Manual Connect"
+            }
+        case "iPhone von Viva":
+            DispatchQueue.main.async {
+                self.VSStatus.title = "Manual Connect"
+            }
+        case "iPhone":
+            DispatchQueue.main.async {
+                self.MSStatus.title = "Manual Connect"
+            }
         default:
             break
         }
@@ -96,8 +144,18 @@ extension ViewController : AudioServiceDelegate {
     
     func newPeer(ID: String){
         switch ID {
-        case "i":
-            break
+        case "Omar Peracha’s iPhone":
+            DispatchQueue.main.async {
+                self.OPStatus.title = "Connected"
+            }
+        case "iPhone von Viva":
+            DispatchQueue.main.async {
+                self.VSStatus.title = "Connected"
+            }
+        case "iPhone":
+            DispatchQueue.main.async {
+                self.MSStatus.title = "Connected"
+            }
         default:
             break
         }
