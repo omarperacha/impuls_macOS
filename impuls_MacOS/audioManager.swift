@@ -24,7 +24,7 @@ class AudioManager {
     
     let configDict = ["Sax":8, "Column": 2, "Outdoor": 5]
     
-    let usernames = ["iPhone von Viva", "Omar Peracha’s iPhone", "User3",  "User4", "User5"]
+    let usernames = ["Omar Peracha’s iPhone", "iPhone von Viva", "iPhone",  "User4", "User5"]
     
     
     func setup() {
