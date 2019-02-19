@@ -166,7 +166,7 @@ class User {
     
     let colBank1 = [
                     "1 thump 1 TRIGGER.wav",
-                    "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "4 lento su plastica 2 stretch.wav", "5 rapido su plastica TRIGGER.wav", "none.wav", "none.wav", "8 rapido su plastica 2 TRIGGER.wav", "9 thump reverb TRIGGER.aif"]
+                    "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "4 lento su plastica 2 stretch.wav", "5 rapido su plastica 1 TRIGGER.wav", "none.wav", "none.wav", "8 rapido su plastica 2 TRIGGER.wav", "9 thump reverb TRIGGER.aif"]
     
     let colBank2 = ["1 lento polistirolo 1 stretch.wav", "2 distacco da polistirolo lento TRIGGER.wav", "3 lento polistirolo 2 stretch.wav", "4 distacco da polistirolo lento TRIGGER.wav", "5 superball grande 1.wav", "none.wav", "none.wav", "8 superball piccola 2.wav", "9 armonico grave multifonico TRIGGER.wav"]
     
@@ -222,52 +222,49 @@ class User {
             
             let sampleName = samples[i]
             
-            if sampleName != "none.wav" {
+            let file = try! AKAudioFile(readFileName: sampleName)
+            let sampler = ImpulsWaveTable(owner: self)
+            sampler.load(file: file)
+            samplers.append(sampler)
                 
-                let file = try! AKAudioFile(readFileName: sampleName)
-                let sampler = ImpulsWaveTable(owner: self)
-                sampler.load(file: file)
-                samplers.append(sampler)
+            if sampleName.contains("TRIGGER") {
+                samplers[i].oneShot = true
+                samplers[i].loopEnabled = false
+                if i < 1{
+                    do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
+                } else {
+                    do {try synth2.loadAudioFile(file)} catch {print("000_ loading error")}
+                    }
+            } else {
+                samplers[i].loopEnabled = true
+                samplers[i].oneShot = false
+                samplers[i].volume = 0
+            }
                 
-                if sampleName.contains("TRIGGER") {
-                    samplers[i].oneShot = true
-                    samplers[i].loopEnabled = false
-                    if i < 1{
-                        do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
+            if conductor.config == "Sax" {
+                if i < mixerSplitIdx {
+                    samplers[i] >>> mixer1
+                } else {
+                    samplers[i] >>> mixer2
+                }
+            } else if conductor.config == "Column" {
+                if i < 1 {
+                    if !samplers[i].oneShot {
+                        samplers[i] >>> mixer1
+                        samplers[i].play()
                     } else {
-                        do {try synth2.loadAudioFile(file)} catch {print("000_ loading error")}
+                        synth >>> mixer1
                     }
                 } else {
-                    samplers[i].loopEnabled = true
-                    samplers[i].oneShot = false
-                    samplers[i].volume = 0
-                }
-                
-                if conductor.config == "Sax" {
-                    if i < mixerSplitIdx {
-                        samplers[i] >>> mixer1
-                    } else {
+                    if !samplers[i].oneShot {
                         samplers[i] >>> mixer2
-                    }
-                } else if conductor.config == "Column" {
-                    if i < 1 {
-                        if !samplers[i].oneShot {
-                            samplers[i] >>> mixer1
-                            samplers[i].play()
-                        } else {
-                            synth >>> mixer1
-                        }
+                        samplers[i].play()
                     } else {
-                        if !samplers[i].oneShot {
-                            samplers[i] >>> mixer2
-                            samplers[i].play()
-                        } else {
-                            synth2 >>> mixer2
-                        }
+                        synth2 >>> mixer2
                     }
-                } else if conductor.config == "Outdoor" {
-                    samplers[i] >>> mixer1
                 }
+            } else if conductor.config == "Outdoor" {
+                samplers[i] >>> mixer1
             }
         }
 
@@ -358,45 +355,42 @@ class User {
             let samples = getColSamples(bank: currentBank)
             
             let sampleName = samples[i]
-            
-            if sampleName != "none.wav" {
                 
-                let file = try! AKAudioFile(readFileName: sampleName)
-                let sampler = ImpulsWaveTable(owner: self)
-                sampler.load(file: file)
-                samplers.append(sampler)
+            let file = try! AKAudioFile(readFileName: sampleName)
+            let sampler = ImpulsWaveTable(owner: self)
+            sampler.load(file: file)
+            samplers.append(sampler)
                 
-                if sampleName.contains("TRIGGER") {
-                    samplers[i].oneShot = true
-                    samplers[i].loopEnabled = true
-                    if i < 1{
-                        do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
-                    } else {
-                        do {try synth2.loadAudioFile(file)} catch {print("000_ loading error")}
-                    }
+            if sampleName.contains("TRIGGER") {
+                samplers[i].oneShot = true
+                samplers[i].loopEnabled = true
+                if i < 1{
+                    do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
                 } else {
-                    samplers[i].loopEnabled = true
-                    samplers[i].oneShot = false
-                    samplers[i].volume = 0
+                    do {try synth2.loadAudioFile(file)} catch {print("000_ loading error")}
                 }
-                
-                if i < 1 {
-                    if !samplers[i].oneShot {
-                        samplers[i] >>> mixer1
-                        samplers[i].play()
-                    } else {
-                        synth >>> mixer1
-                    }
-                } else {
-                    if !samplers[i].oneShot {
-                        samplers[i] >>> mixer2
-                        samplers[i].play()
-                    } else {
-                        synth2 >>> mixer2
-                    }
-                }
-                
+            } else {
+                samplers[i].loopEnabled = true
+                samplers[i].oneShot = false
+                samplers[i].volume = 0
             }
+                
+            if i < 1 {
+                if !samplers[i].oneShot {
+                    samplers[i] >>> mixer1
+                    samplers[i].play()
+                } else {
+                    synth >>> mixer1
+                }
+            } else {
+                if !samplers[i].oneShot {
+                    samplers[i] >>> mixer2
+                    samplers[i].play()
+                } else {
+                    synth2 >>> mixer2
+                }
+            }
+            
         }
     }
     

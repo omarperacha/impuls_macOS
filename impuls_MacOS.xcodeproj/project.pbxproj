@@ -28,6 +28,7 @@
 		595B5BDC221712D300B2C514 /* multiphonic6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 595B5BD4221712D300B2C514 /* multiphonic6.wav */; };
 		5969D219221AC2F200B3C501 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5969D218221AC2F200B3C501 /* AudioKit.framework */; };
 		5969D21A221AC2F200B3C501 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5969D218221AC2F200B3C501 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59844C8D221C1AD000C529C8 /* none.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59844C8C221C1AD000C529C8 /* none.wav */; };
 		59C7CD192219CD3B00D8B98D /* 4 lento su plastica 2 stretch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD122219CD3B00D8B98D /* 4 lento su plastica 2 stretch.wav */; };
 		59C7CD1A2219CD3B00D8B98D /* 2 lento su plastica 1 stretch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD132219CD3B00D8B98D /* 2 lento su plastica 1 stretch.wav */; };
 		59C7CD1B2219CD3B00D8B98D /* 8 rapido su plastica 2 TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD142219CD3B00D8B98D /* 8 rapido su plastica 2 TRIGGER.wav */; };
@@ -116,6 +117,7 @@
 		595B5BD3221712D300B2C514 /* multiphonic3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic3.wav; sourceTree = "<group>"; };
 		595B5BD4221712D300B2C514 /* multiphonic6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic6.wav; sourceTree = "<group>"; };
 		5969D218221AC2F200B3C501 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		59844C8C221C1AD000C529C8 /* none.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = none.wav; path = ../../../Downloads/none.wav; sourceTree = "<group>"; };
 		59C7CD122219CD3B00D8B98D /* 4 lento su plastica 2 stretch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "4 lento su plastica 2 stretch.wav"; sourceTree = "<group>"; };
 		59C7CD132219CD3B00D8B98D /* 2 lento su plastica 1 stretch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "2 lento su plastica 1 stretch.wav"; sourceTree = "<group>"; };
 		59C7CD142219CD3B00D8B98D /* 8 rapido su plastica 2 TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "8 rapido su plastica 2 TRIGGER.wav"; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				59C7CD542219CD7700D8B98D /* 1 acuto stoppato 3 note TRIGGER.wav */,
 				59C7CD582219CD7700D8B98D /* 6 acuto stoppato 1 nota TRIGGER.wav */,
 				59C7CD592219CD7700D8B98D /* 5 acuto stoppato 3 note TRIGGER.wav */,
+				59844C8C221C1AD000C529C8 /* none.wav */,
 				59C7CD5A2219CD7700D8B98D /* 8 acuto stoppato 3 note TRIGGER.wav */,
 			);
 			path = "bank 5";
@@ -467,6 +470,7 @@
 				59C7CD3D2219CD5B00D8B98D /* 3_2 acciaccatura + battuto cluster 2 TRIGGER.wav in Resources */,
 				59C7CD1C2219CD3B00D8B98D /* 9 thump reverb TRIGGER.aif in Resources */,
 				59C7CD702219CD7F00D8B98D /* PA pioggia di aghi.wav in Resources */,
+				59844C8D221C1AD000C529C8 /* none.wav in Resources */,
 				59C7CD6F2219CD7F00D8B98D /* 7 acuto stoppato 4 note TRIGGER.wav in Resources */,
 				59C7CD392219CD5B00D8B98D /* 4_1 acciaccatura + battuto la f TRIGGER.wav in Resources */,
 				59C7CD862219CD8900D8B98D /* 3 pendola tac TRIGGER.wav in Resources */,
