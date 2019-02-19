@@ -20,7 +20,7 @@ class AudioManager {
     
     var users = [User]()
     
-    var config = "Column"
+    var config = "Outdoor"
     
     let configDict = ["Sax":8, "Column": 2, "Outdoor": 5]
     
@@ -179,7 +179,7 @@ class User {
     
     var pan = AKPanner()
     
-    let outdoorSamples = ["1 Beep low compressed bounce.aif", "2 bird market process_bip.aif", "3 papers_bip.aif", "4 Suspiro bounce.aif", "5 Traffic bounce.aif"]
+    let outdoorSamples = ["1 Beep low compressed bounce.aif", "2 bird market bounce.aif", "3 papers bounce.aif", "4 Suspiro bounce.aif", "5 Traffic bounce.aif"]
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
@@ -284,6 +284,7 @@ class User {
                 }
             } else if conductor.config == "Outdoor" {
                 samplers[i] >>> mixer1
+                samplers[i].play()
             }
         }
 
@@ -488,24 +489,10 @@ class ImpulsWaveTable: AKWaveTable {
         if !oneShot {
             self.volume = newVol
         } else {
-            
-            if !self.triggered{
-                
-                if newVol > 0 {
-                    self.triggered = true
-                    print("TRIGGER")
-                    if idx < 1 {
-                    do {try owner.synth.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
-                    } else {
-                        do {try owner.synth2.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
-                    }
-                }
-            } else if newVol <= 0 {
-                self.triggered = false
-            }
+            return
         }
-        
     }
+    
 }
 
 
