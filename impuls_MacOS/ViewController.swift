@@ -69,7 +69,7 @@ class ViewController: NSViewController {
     
     @IBAction func toggleMS(_ sender: Any) {
         let string = "iPhone"
-        audioService.entryDict[string] = Bool(truncating: VSCheckBox.state.rawValue as NSNumber)
+        audioService.entryDict[string] = Bool(truncating: MSCheckbox.state.rawValue as NSNumber)
     }
     
     @IBOutlet weak var MSStatus: NSButton!
@@ -106,6 +106,31 @@ class ViewController: NSViewController {
         }
     }
 
+    @IBOutlet weak var IOCheckBox: NSButton!
+    
+    @IBAction func toggleIO(_ sender: Any) {
+        let string = "iPhone de Isandro Ojeda-García"
+        audioService.entryDict[string] = Bool(truncating: IOCheckBox.state.rawValue as NSNumber)
+    }
+    
+    
+    @IBOutlet weak var IOStatus: NSButtonCell!
+    
+    @IBAction func IOConnectButton(_ sender: Any) {
+        if IOStatus.title == "Manual Connect" {
+            var peerId : MCPeerID?
+            for peer in audioService.nearbyPeers{
+                if peer.displayName == "iPhone de Isandro Ojeda-García" {
+                    peerId = peer
+                    break
+                }
+            }
+            if peerId == nil {return}
+            print(peerId!)
+            audioService.serviceBrowser.invitePeer(peerId!, to: audioService.session, withContext: nil, timeout: 10)
+        }
+    }
+    
     @IBAction func off(_ sender: Any) {
         conductor.tearDown()
     }
@@ -140,6 +165,10 @@ extension ViewController : AudioServiceDelegate {
             DispatchQueue.main.async {
                 self.MSStatus.title = "Manual Connect"
             }
+        case "iPhone de Isandro Ojeda-García":
+        DispatchQueue.main.async {
+            self.IOStatus.title = "Manual Connect"
+            }
         default:
             break
         }
@@ -158,6 +187,10 @@ extension ViewController : AudioServiceDelegate {
         case "iPhone":
             DispatchQueue.main.async {
                 self.MSStatus.title = "Connected"
+            }
+        case "iPhone de Isandro Ojeda-García":
+        DispatchQueue.main.async {
+            self.IOStatus.title = "Connected"
             }
         default:
             break
