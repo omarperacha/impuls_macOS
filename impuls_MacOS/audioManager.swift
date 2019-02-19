@@ -63,6 +63,15 @@ class AudioManager {
             user?.setNextBank()
             return
         }
+        
+        if input.first! == "1" {
+            var _input = input
+            _input.remove(at: _input.startIndex)
+            let user = getUser(withName: _input)
+            print("TRIGGER")
+            user?.triggerOneShot()
+            return
+        }
 
         let alphabet = "abcdefghijklmnopqrstuvwxyz"
         
@@ -430,6 +439,23 @@ class User {
         oscillators.removeAll()
         samplers.removeAll()
         
+    }
+    
+    func triggerOneShot(){
+        var oneshots = [Int]()
+        for i in 0 ..< samplers.count {
+            if samplers[i].oneShot {
+                oneshots.append(i)
+            }
+        }
+        
+        let idx = oneshots.randomElement()
+        
+        if idx == 0 {
+            do {try synth.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
+        } else if idx == 1 {
+            do {try synth2.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
+        }
     }
     
     
