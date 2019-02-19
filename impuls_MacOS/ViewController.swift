@@ -106,7 +106,10 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBAction func off(_ sender: Any) {
+        conductor.tearDown()
+    }
+    
 }
 
 extension ViewController : AudioServiceDelegate {

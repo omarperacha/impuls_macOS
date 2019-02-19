@@ -122,14 +122,22 @@ extension AudioService : MCSessionDelegate {
         self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
             session.connectedPeers.map{$0.displayName})
         if state.rawValue == 0 {
-            conductor.destroyUser(withName: peerID.displayName)
+            //conductor.destroyUser(withName: peerID.displayName)
             conductor.vc!.lostPeer(ID: peerID.displayName)
         } else if state.rawValue == 2 {
             if entryDict[peerID.displayName] ?? false {
                 
-            conductor.setup()
-            conductor.initUser(name: peerID.displayName)
-            conductor.vc!.newPeer(ID: peerID.displayName)
+                conductor.setup()
+                var newUser = true
+                for user in conductor.users{
+                    if user.name == peerID.displayName {
+                        newUser = false
+                    }
+                }
+                if newUser {
+                    conductor.initUser(name: peerID.displayName)
+                }
+                conductor.vc!.newPeer(ID: peerID.displayName)
                 
             }
         }
