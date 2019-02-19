@@ -95,7 +95,17 @@ class AudioManager {
         let user = getUser(withName: name)
         
         if user != nil && valDouble != nil && mixerDouble != nil {
-            user?.updateAmp(idx: idx, valDouble: valDouble!, mixer: mixerDouble!)
+            
+            if self.config == "Column" {
+                for sampler in user!.samplers {
+                    if !sampler.oneShot {
+                        sampler.volume = Double(1 - (abs(valDouble!)/user!.distanceThresh))
+                    }
+                }
+                
+            } else {
+                user?.updateAmp(idx: idx, valDouble: valDouble!, mixer: mixerDouble!)
+            }
         }
         
     }
