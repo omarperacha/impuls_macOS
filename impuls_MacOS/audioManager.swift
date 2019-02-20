@@ -206,7 +206,11 @@ class User {
     let colBank6 = ["P inhale 2 stretch.aif", "P_1 woodblock 1 TRIGGER.aif", "P_2 acuto stoppato 1 nota TRIGGER.wav", "P_1 woodblock 1 TRIGGER.aif", "P_2 acuto stoppato 1 nota TRIGGER.wav",
                      "V exhale 1 stretch.aif", "V_1 woodblock 2 TRIGGER.aif", "V_2 acuto stoppato 1 nota TRIGGER.wav", "V_1 woodblock 2 TRIGGER.aif", "V_2 acuto stoppato 1 nota TRIGGER.wav"]
     
-    let colBank7 = ["1 pendola tac TRIGGER.wav", "3 pendola tac TRIGGER.wav", "2 pendola tic TRIGGER.wav", "4 pendola tic TRIGGER.wav", "5 pendola tac TRIGGER.wav", "7 pendola tac TRIGGER.wav", "6 pendola tic TRIGGER.wav", "8 pendola tic TRIGGER.wav", "9 righello pendolo cresc TRIGGER.wav"]
+    let colBank7 = ["none.wav", "P_1 acuto stoppato 1 nota TRIGGER.wav", "P_2 acuto stoppato 3 note TRIGGER.wav", "P_1 acuto stoppato 1 nota TRIGGER.wav", "P_2 acuto stoppato 3 note TRIGGER.wav", "none.wav", "V_1 acuto stoppato 1 nota TRIGGER.wav", "V_2 acuto stoppato 3 note TRIGGER.wav", "V_1 acuto stoppato 1 nota TRIGGER.wav", "V_2 acuto stoppato 3 note TRIGGER.wav"]
+    
+    let colBank8 = ["none.wav", "P_1 acuto stoppato 4 note TRIGGER.wav", "P_2 acuto stoppato 3 note TRIGGER.wav", "P_1 acuto stoppato 4 note TRIGGER.wav", "P_2 acuto stoppato 3 note TRIGGER.wav", "none.wav", "V_1 acuto stoppato 4 note TRIGGER.wav", "V_2 acuto stoppato 3 note TRIGGER.wav", "V_1 acuto stoppato 4 note TRIGGER.wav", "V_2 acuto stoppato 3 note TRIGGER.wav"]
+    
+    let colBank9 = ["none", "P pendola tic TRIGGER.wav", "P pendola tic TRIGGER.wav", "P pendola tic TRIGGER.wav", "P pendola tic TRIGGER.wav", "none", "V pendola tac TRIGGER.wav", "V pendola tac TRIGGER.wav", "V pendola tac TRIGGER.wav", "V pendola tac TRIGGER.wav"]
     
     init(name: String) {
         
