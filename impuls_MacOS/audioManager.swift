@@ -20,9 +20,9 @@ class AudioManager {
     
     var users = [User]()
     
-    var config = "Outdoor"
+    var config = "Column"
     
-    let configDict = ["Sax":8, "Column": 2, "Outdoor": 5]
+    let configDict = ["Sax":8, "Column": 3, "Outdoor": 5]
     
     let usernames = ["Omar Peracha’s iPhone", "iPhone von Viva", "iPhone",  "iPhone de Isandro Ojeda-García", "User5"]
     
@@ -169,12 +169,14 @@ class User {
     var oscillators = [AKOscillator]()
     var synth = AKAppleSampler()
     var synth2 = AKAppleSampler()
+    var synth3 = AKAppleSampler()
     var samplers = [ImpulsWaveTable]()
     var distanceThresh = 0.4
     var currentBank = 1
     
     var mixer1 = AKMixer()
     var mixer2 = AKMixer()
+    var mixer3 = AKMixer()
     var masterMixer = AKMixer()
     
     var pan = AKPanner()
@@ -217,6 +219,7 @@ class User {
             masterMixer >>> pan >>> conductor.mixer
             mixer1 >>> masterMixer
             mixer2 >>> masterMixer
+            mixer3 >>> masterMixer
         } else if conductor.config == "Outdoor" {
             mixer1 >>> conductor.mixer
         }
@@ -249,11 +252,13 @@ class User {
             if sampleName.contains("TRIGGER") {
                 samplers[i].oneShot = true
                 samplers[i].loopEnabled = false
-                if i < 1{
+                if i == 0{
                     do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
-                } else {
+                } else if i == 1 {
                     do {try synth2.loadAudioFile(file)} catch {print("000_ loading error")}
-                    }
+                } else if i == 2 {
+                    do {try synth3.loadAudioFile(file)} catch {print("000_ loading error")}
+                }
             } else {
                 samplers[i].loopEnabled = true
                 samplers[i].oneShot = false
@@ -267,19 +272,26 @@ class User {
                     samplers[i] >>> mixer2
                 }
             } else if conductor.config == "Column" {
-                if i < 1 {
+                if i == 0 {
                     if !samplers[i].oneShot {
                         samplers[i] >>> mixer1
                         samplers[i].play()
                     } else {
                         synth >>> mixer1
                     }
-                } else {
+                } else if i == 1 {
                     if !samplers[i].oneShot {
                         samplers[i] >>> mixer2
                         samplers[i].play()
                     } else {
                         synth2 >>> mixer2
+                    }
+                } else if i == 2 {
+                    if !samplers[i].oneShot {
+                        samplers[i] >>> mixer3
+                        samplers[i].play()
+                    } else {
+                        synth3 >>> mixer2
                     }
                 }
             } else if conductor.config == "Outdoor" {
@@ -321,10 +333,10 @@ class User {
         
         switch name {
         case conductor.usernames[0]:
-            samples = [colBank[0], colBank[1]]
-            pan.pan = (-1)
+            samples = [colBank[0], colBank[1], colBank[2]]
+            pan.pan = (1)
         case conductor.usernames[1]:
-            samples = [colBank[2], colBank[3]]
+            samples = [colBank[3], colBank[4], colBank[5]]
             pan.pan = (1)
         case conductor.usernames[2]:
             samples = [colBank[4], colBank[5]]
@@ -384,10 +396,12 @@ class User {
             if sampleName.contains("TRIGGER") {
                 samplers[i].oneShot = true
                 samplers[i].loopEnabled = true
-                if i < 1{
+                if i == 0 {
                     do {try synth.loadAudioFile(file)} catch {print("000_ loading error")}
-                } else {
+                } else if i == 1 {
                     do {try synth2.loadAudioFile(file)} catch {print("000_ loading error")}
+                } else if i == 2 {
+                do {try synth3.loadAudioFile(file)} catch {print("000_ loading error")}
                 }
             } else {
                 samplers[i].loopEnabled = true
@@ -395,19 +409,26 @@ class User {
                 samplers[i].volume = 0
             }
                 
-            if i < 1 {
+            if i == 0 {
                 if !samplers[i].oneShot {
                     samplers[i] >>> mixer1
                     samplers[i].play()
                 } else {
                     synth >>> mixer1
                 }
-            } else {
+            } else if i == 1 {
                 if !samplers[i].oneShot {
                     samplers[i] >>> mixer2
                     samplers[i].play()
                 } else {
                     synth2 >>> mixer2
+                }
+            } else if i == 2 {
+                if !samplers[i].oneShot {
+                    samplers[i] >>> mixer3
+                    samplers[i].play()
+                } else {
+                    synth3 >>> mixer2
                 }
             }
             
