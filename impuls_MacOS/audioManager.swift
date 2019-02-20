@@ -358,7 +358,7 @@ class User {
     func getColSamples(bank: Int) -> [String]{
         var samples = [""]
         
-        let banks = [colBank1, colBank2, colBank3, colBank4, colBank5, colBank6, colBank7]
+        let banks = [colBank1, colBank2, colBank3, colBank4, colBank5, colBank6, colBank7, colBank8, colBank9]
         
         let colBank = banks[(bank - 1) % banks.count]
         
