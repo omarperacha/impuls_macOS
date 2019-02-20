@@ -192,7 +192,7 @@ class User {
     let colBank1 = ["P lento su plastica 2 stretch.wav", "P bump TRIGGER.wav", "P bump TRIGGER.wav", "P bump TRIGGER.wav", "P bump TRIGGER.wav",
                     "V lento su plastica 1 stretch.wav", "V thump 1 TRIGGER.wav", "V thump 1 TRIGGER.wav", "V thump 1 TRIGGER.wav", "V thump 1 TRIGGER.wav"]
     
-    let colBank2 = ["P lento polistirolo 2 stretch.wav", "P distacco da polistirolo lento TRIGGER.wav", "P distacco da polistirolo lento TRIGGER.wav", "P distacco da polistirolo lento TRIGGER.wav", "P distacco da polistirolo lento TRIGGER.wav",
+    let colBank2 = ["P lento polistirolo 2 stretch.aif", "P distacco da polistirolo lento TRIGGER.wav", "P distacco da polistirolo lento TRIGGER.wav", "P distacco da polistirolo lento TRIGGER.wav", "P distacco da polistirolo lento TRIGGER.wav",
                     "V lento polistirolo 1 stretch.wav", "V distacco da polistirolo lento TRIGGER.wav", "V distacco da polistirolo lento TRIGGER.wav", "V distacco da polistirolo lento TRIGGER.wav", "V distacco da polistirolo lento TRIGGER.wav"]
     
     let colBank3 = ["P superball grande 1.wav", "none.wav", "none.wav", "none.wav", "none.wav", "V superball piccola 2.wav", "none.wav", "none.wav", "none.wav", "none.wav"]
@@ -210,7 +210,7 @@ class User {
     
     let colBank8 = ["none.wav", "P_1 acuto stoppato 4 note TRIGGER.wav", "P_2 acuto stoppato 3 note TRIGGER.wav", "P_1 acuto stoppato 4 note TRIGGER.wav", "P_2 acuto stoppato 3 note TRIGGER.wav", "none.wav", "V_1 acuto stoppato 4 note TRIGGER.wav", "V_2 acuto stoppato 3 note TRIGGER.wav", "V_1 acuto stoppato 4 note TRIGGER.wav", "V_2 acuto stoppato 3 note TRIGGER.wav"]
     
-    let colBank9 = ["none", "P pendola tic TRIGGER.wav", "P pendola tic TRIGGER.wav", "P pendola tic TRIGGER.wav", "P pendola tic TRIGGER.wav", "none", "V pendola tac TRIGGER.wav", "V pendola tac TRIGGER.wav", "V pendola tac TRIGGER.wav", "V pendola tac TRIGGER.wav"]
+    let colBank9 = ["none.wav", "P pendola tic TRIGGER.wav", "P pendola tic TRIGGER.wav", "P pendola tic TRIGGER.wav", "P pendola tic TRIGGER.wav", "none.wav", "V pendola tac TRIGGER.wav", "V pendola tac TRIGGER.wav", "V pendola tac TRIGGER.wav", "V pendola tac TRIGGER.wav"]
     
     init(name: String) {
         

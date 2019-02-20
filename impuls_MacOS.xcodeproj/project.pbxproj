@@ -25,21 +25,16 @@
 		5969D21A221AC2F200B3C501 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5969D218221AC2F200B3C501 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59A59EAD221D5E9E0008A1C1 /* P_2 acuto stoppato 3 note TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E7B221D5E9E0008A1C1 /* P_2 acuto stoppato 3 note TRIGGER.wav */; };
 		59A59EAE221D5E9E0008A1C1 /* V_1 acuto stoppato 1 nota TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E7C221D5E9E0008A1C1 /* V_1 acuto stoppato 1 nota TRIGGER.wav */; };
-		59A59EAF221D5E9E0008A1C1 /* V_2 acuto stoppato 3 note TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E7D221D5E9E0008A1C1 /* V_2 acuto stoppato 3 note TRIGGER.wav */; };
 		59A59EB0221D5E9E0008A1C1 /* P_1 acuto stoppato 1 nota TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E7E221D5E9E0008A1C1 /* P_1 acuto stoppato 1 nota TRIGGER.wav */; };
 		59A59EB1221D5E9E0008A1C1 /* V_4 woodblock 4 TRIGGER.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E80221D5E9E0008A1C1 /* V_4 woodblock 4 TRIGGER.aif */; };
-		59A59EB2221D5E9E0008A1C1 /* V exhale 1 stretch.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E81221D5E9E0008A1C1 /* V exhale 1 stretch.aif */; };
-		59A59EB3221D5E9E0008A1C1 /* P_1 woodblock 1 TRIGGER.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E82221D5E9E0008A1C1 /* P_1 woodblock 1 TRIGGER.aif */; };
 		59A59EB4221D5E9E0008A1C1 /* P_3 woodblock 3 TRIGGER.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E83221D5E9E0008A1C1 /* P_3 woodblock 3 TRIGGER.aif */; };
 		59A59EB5221D5E9E0008A1C1 /* P_2 woodblock 2 TRIGGER.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E84221D5E9E0008A1C1 /* P_2 woodblock 2 TRIGGER.aif */; };
 		59A59EB6221D5E9E0008A1C1 /* V_1 woodblock 1 TRIGGER.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E85221D5E9E0008A1C1 /* V_1 woodblock 1 TRIGGER.aif */; };
 		59A59EB7221D5E9E0008A1C1 /* V_2 woodblock 2 TRIGGER.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E86221D5E9E0008A1C1 /* V_2 woodblock 2 TRIGGER.aif */; };
 		59A59EB8221D5E9E0008A1C1 /* V_3 woodblock 3 TRIGGER.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E87221D5E9E0008A1C1 /* V_3 woodblock 3 TRIGGER.aif */; };
 		59A59EB9221D5E9E0008A1C1 /* P_4 woodblock 4 TRIGGER.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E88221D5E9E0008A1C1 /* P_4 woodblock 4 TRIGGER.aif */; };
-		59A59EBA221D5E9E0008A1C1 /* P inhale 2 stretch.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E89221D5E9E0008A1C1 /* P inhale 2 stretch.aif */; };
 		59A59EBB221D5E9E0008A1C1 /* V pendola tac TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E8B221D5E9E0008A1C1 /* V pendola tac TRIGGER.wav */; };
 		59A59EBC221D5E9E0008A1C1 /* P pendola tic TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E8C221D5E9E0008A1C1 /* P pendola tic TRIGGER.wav */; };
-		59A59EBD221D5E9E0008A1C1 /* P_2 acuto stoppato 3 note TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E8E221D5E9E0008A1C1 /* P_2 acuto stoppato 3 note TRIGGER.wav */; };
 		59A59EBE221D5E9E0008A1C1 /* V_2 acuto stoppato 3 note TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E8F221D5E9E0008A1C1 /* V_2 acuto stoppato 3 note TRIGGER.wav */; };
 		59A59EBF221D5E9E0008A1C1 /* P_1 acuto stoppato 4 note TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E90221D5E9E0008A1C1 /* P_1 acuto stoppato 4 note TRIGGER.wav */; };
 		59A59EC0221D5E9E0008A1C1 /* V_1 acuto stoppato 4 note TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E91221D5E9E0008A1C1 /* V_1 acuto stoppato 4 note TRIGGER.wav */; };
@@ -55,7 +50,6 @@
 		59A59ECA221D5E9E0008A1C1 /* V lento polistirolo 1 stretch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59E9E221D5E9E0008A1C1 /* V lento polistirolo 1 stretch.wav */; };
 		59A59ECB221D5E9E0008A1C1 /* V_4 acciaccatura + battuto la p TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59EA0221D5E9E0008A1C1 /* V_4 acciaccatura + battuto la p TRIGGER.wav */; };
 		59A59ECC221D5E9E0008A1C1 /* P righello verticale la.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59EA1221D5E9E0008A1C1 /* P righello verticale la.wav */; };
-		59A59ECD221D5E9E0008A1C1 /* V superball piccola 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59EA2221D5E9E0008A1C1 /* V superball piccola 2.wav */; };
 		59A59ECE221D5E9E0008A1C1 /* V_3 acciaccatura + battuto la f TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59EA3221D5E9E0008A1C1 /* V_3 acciaccatura + battuto la f TRIGGER.wav */; };
 		59A59ECF221D5E9E0008A1C1 /* V_1 acciaccatura + battuto cluster 1 TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59EA4221D5E9E0008A1C1 /* V_1 acciaccatura + battuto cluster 1 TRIGGER.wav */; };
 		59A59ED0221D5E9E0008A1C1 /* V_2 acciaccatura + battuto cluster 2 TRIGGER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59EA5221D5E9E0008A1C1 /* V_2 acciaccatura + battuto cluster 2 TRIGGER.wav */; };
@@ -65,6 +59,7 @@
 		59A59ED4221D5E9E0008A1C1 /* P_1 woodblock 1 TRIGGER.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59EAA221D5E9E0008A1C1 /* P_1 woodblock 1 TRIGGER.aif */; };
 		59A59ED5221D5E9E0008A1C1 /* V_1 woodblock 2 TRIGGER.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59EAB221D5E9E0008A1C1 /* V_1 woodblock 2 TRIGGER.aif */; };
 		59A59ED6221D5E9E0008A1C1 /* P inhale 2 stretch.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59A59EAC221D5E9E0008A1C1 /* P inhale 2 stretch.aif */; };
+		59A59ED8221D68A70008A1C1 /* none.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59A59ED7221D68A70008A1C1 /* none.wav */; };
 		59B1906A221C5E820073C28D /* 1 Beep low compressed bounce.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59B19067221C5E560073C28D /* 1 Beep low compressed bounce.aif */; };
 		59B1906B221C5E820073C28D /* 2 bird market bounce.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59B19065221C5E560073C28D /* 2 bird market bounce.aif */; };
 		59B1906C221C5E820073C28D /* 3 papers bounce.aif in Resources */ = {isa = PBXBuildFile; fileRef = 59B19068221C5E560073C28D /* 3 papers bounce.aif */; };
@@ -107,21 +102,16 @@
 		5969D218221AC2F200B3C501 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		59A59E7B221D5E9E0008A1C1 /* P_2 acuto stoppato 3 note TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "P_2 acuto stoppato 3 note TRIGGER.wav"; sourceTree = "<group>"; };
 		59A59E7C221D5E9E0008A1C1 /* V_1 acuto stoppato 1 nota TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V_1 acuto stoppato 1 nota TRIGGER.wav"; sourceTree = "<group>"; };
-		59A59E7D221D5E9E0008A1C1 /* V_2 acuto stoppato 3 note TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V_2 acuto stoppato 3 note TRIGGER.wav"; sourceTree = "<group>"; };
 		59A59E7E221D5E9E0008A1C1 /* P_1 acuto stoppato 1 nota TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "P_1 acuto stoppato 1 nota TRIGGER.wav"; sourceTree = "<group>"; };
 		59A59E80221D5E9E0008A1C1 /* V_4 woodblock 4 TRIGGER.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "V_4 woodblock 4 TRIGGER.aif"; sourceTree = "<group>"; };
-		59A59E81221D5E9E0008A1C1 /* V exhale 1 stretch.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "V exhale 1 stretch.aif"; sourceTree = "<group>"; };
-		59A59E82221D5E9E0008A1C1 /* P_1 woodblock 1 TRIGGER.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "P_1 woodblock 1 TRIGGER.aif"; sourceTree = "<group>"; };
 		59A59E83221D5E9E0008A1C1 /* P_3 woodblock 3 TRIGGER.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "P_3 woodblock 3 TRIGGER.aif"; sourceTree = "<group>"; };
 		59A59E84221D5E9E0008A1C1 /* P_2 woodblock 2 TRIGGER.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "P_2 woodblock 2 TRIGGER.aif"; sourceTree = "<group>"; };
 		59A59E85221D5E9E0008A1C1 /* V_1 woodblock 1 TRIGGER.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "V_1 woodblock 1 TRIGGER.aif"; sourceTree = "<group>"; };
 		59A59E86221D5E9E0008A1C1 /* V_2 woodblock 2 TRIGGER.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "V_2 woodblock 2 TRIGGER.aif"; sourceTree = "<group>"; };
 		59A59E87221D5E9E0008A1C1 /* V_3 woodblock 3 TRIGGER.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "V_3 woodblock 3 TRIGGER.aif"; sourceTree = "<group>"; };
 		59A59E88221D5E9E0008A1C1 /* P_4 woodblock 4 TRIGGER.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "P_4 woodblock 4 TRIGGER.aif"; sourceTree = "<group>"; };
-		59A59E89221D5E9E0008A1C1 /* P inhale 2 stretch.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "P inhale 2 stretch.aif"; sourceTree = "<group>"; };
 		59A59E8B221D5E9E0008A1C1 /* V pendola tac TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V pendola tac TRIGGER.wav"; sourceTree = "<group>"; };
 		59A59E8C221D5E9E0008A1C1 /* P pendola tic TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "P pendola tic TRIGGER.wav"; sourceTree = "<group>"; };
-		59A59E8E221D5E9E0008A1C1 /* P_2 acuto stoppato 3 note TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "P_2 acuto stoppato 3 note TRIGGER.wav"; sourceTree = "<group>"; };
 		59A59E8F221D5E9E0008A1C1 /* V_2 acuto stoppato 3 note TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V_2 acuto stoppato 3 note TRIGGER.wav"; sourceTree = "<group>"; };
 		59A59E90221D5E9E0008A1C1 /* P_1 acuto stoppato 4 note TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "P_1 acuto stoppato 4 note TRIGGER.wav"; sourceTree = "<group>"; };
 		59A59E91221D5E9E0008A1C1 /* V_1 acuto stoppato 4 note TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V_1 acuto stoppato 4 note TRIGGER.wav"; sourceTree = "<group>"; };
@@ -137,7 +127,6 @@
 		59A59E9E221D5E9E0008A1C1 /* V lento polistirolo 1 stretch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V lento polistirolo 1 stretch.wav"; sourceTree = "<group>"; };
 		59A59EA0221D5E9E0008A1C1 /* V_4 acciaccatura + battuto la p TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V_4 acciaccatura + battuto la p TRIGGER.wav"; sourceTree = "<group>"; };
 		59A59EA1221D5E9E0008A1C1 /* P righello verticale la.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "P righello verticale la.wav"; sourceTree = "<group>"; };
-		59A59EA2221D5E9E0008A1C1 /* V superball piccola 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V superball piccola 2.wav"; sourceTree = "<group>"; };
 		59A59EA3221D5E9E0008A1C1 /* V_3 acciaccatura + battuto la f TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V_3 acciaccatura + battuto la f TRIGGER.wav"; sourceTree = "<group>"; };
 		59A59EA4221D5E9E0008A1C1 /* V_1 acciaccatura + battuto cluster 1 TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V_1 acciaccatura + battuto cluster 1 TRIGGER.wav"; sourceTree = "<group>"; };
 		59A59EA5221D5E9E0008A1C1 /* V_2 acciaccatura + battuto cluster 2 TRIGGER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "V_2 acciaccatura + battuto cluster 2 TRIGGER.wav"; sourceTree = "<group>"; };
@@ -147,6 +136,7 @@
 		59A59EAA221D5E9E0008A1C1 /* P_1 woodblock 1 TRIGGER.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "P_1 woodblock 1 TRIGGER.aif"; sourceTree = "<group>"; };
 		59A59EAB221D5E9E0008A1C1 /* V_1 woodblock 2 TRIGGER.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "V_1 woodblock 2 TRIGGER.aif"; sourceTree = "<group>"; };
 		59A59EAC221D5E9E0008A1C1 /* P inhale 2 stretch.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "P inhale 2 stretch.aif"; sourceTree = "<group>"; };
+		59A59ED7221D68A70008A1C1 /* none.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = none.wav; sourceTree = "<group>"; };
 		59B19065221C5E560073C28D /* 2 bird market bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "2 bird market bounce.aif"; sourceTree = "<group>"; };
 		59B19066221C5E560073C28D /* 5 Traffic bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5 Traffic bounce.aif"; sourceTree = "<group>"; };
 		59B19067221C5E560073C28D /* 1 Beep low compressed bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1 Beep low compressed bounce.aif"; sourceTree = "<group>"; };
@@ -249,7 +239,6 @@
 			children = (
 				59A59E7B221D5E9E0008A1C1 /* P_2 acuto stoppato 3 note TRIGGER.wav */,
 				59A59E7C221D5E9E0008A1C1 /* V_1 acuto stoppato 1 nota TRIGGER.wav */,
-				59A59E7D221D5E9E0008A1C1 /* V_2 acuto stoppato 3 note TRIGGER.wav */,
 				59A59E7E221D5E9E0008A1C1 /* P_1 acuto stoppato 1 nota TRIGGER.wav */,
 			);
 			path = "bank 7";
@@ -259,15 +248,12 @@
 			isa = PBXGroup;
 			children = (
 				59A59E80221D5E9E0008A1C1 /* V_4 woodblock 4 TRIGGER.aif */,
-				59A59E81221D5E9E0008A1C1 /* V exhale 1 stretch.aif */,
-				59A59E82221D5E9E0008A1C1 /* P_1 woodblock 1 TRIGGER.aif */,
 				59A59E83221D5E9E0008A1C1 /* P_3 woodblock 3 TRIGGER.aif */,
 				59A59E84221D5E9E0008A1C1 /* P_2 woodblock 2 TRIGGER.aif */,
 				59A59E85221D5E9E0008A1C1 /* V_1 woodblock 1 TRIGGER.aif */,
 				59A59E86221D5E9E0008A1C1 /* V_2 woodblock 2 TRIGGER.aif */,
 				59A59E87221D5E9E0008A1C1 /* V_3 woodblock 3 TRIGGER.aif */,
 				59A59E88221D5E9E0008A1C1 /* P_4 woodblock 4 TRIGGER.aif */,
-				59A59E89221D5E9E0008A1C1 /* P inhale 2 stretch.aif */,
 			);
 			name = "bank 5";
 			path = "../../Downloads/SEQUENCE/bank 5";
@@ -285,7 +271,6 @@
 		59A59E8D221D5E9E0008A1C1 /* bank 8 */ = {
 			isa = PBXGroup;
 			children = (
-				59A59E8E221D5E9E0008A1C1 /* P_2 acuto stoppato 3 note TRIGGER.wav */,
 				59A59E8F221D5E9E0008A1C1 /* V_2 acuto stoppato 3 note TRIGGER.wav */,
 				59A59E90221D5E9E0008A1C1 /* P_1 acuto stoppato 4 note TRIGGER.wav */,
 				59A59E91221D5E9E0008A1C1 /* V_1 acuto stoppato 4 note TRIGGER.wav */,
@@ -307,6 +292,7 @@
 		59A59E97221D5E9E0008A1C1 /* bank 3 */ = {
 			isa = PBXGroup;
 			children = (
+				59A59ED7221D68A70008A1C1 /* none.wav */,
 				59A59E98221D5E9E0008A1C1 /* P superball grande 1.wav */,
 				59A59E99221D5E9E0008A1C1 /* V superball piccola 2.wav */,
 			);
@@ -329,7 +315,6 @@
 			children = (
 				59A59EA0221D5E9E0008A1C1 /* V_4 acciaccatura + battuto la p TRIGGER.wav */,
 				59A59EA1221D5E9E0008A1C1 /* P righello verticale la.wav */,
-				59A59EA2221D5E9E0008A1C1 /* V superball piccola 2.wav */,
 				59A59EA3221D5E9E0008A1C1 /* V_3 acciaccatura + battuto la f TRIGGER.wav */,
 				59A59EA4221D5E9E0008A1C1 /* V_1 acciaccatura + battuto cluster 1 TRIGGER.wav */,
 				59A59EA5221D5E9E0008A1C1 /* V_2 acciaccatura + battuto cluster 2 TRIGGER.wav */,
@@ -418,6 +403,7 @@
 				59A59EB6221D5E9E0008A1C1 /* V_1 woodblock 1 TRIGGER.aif in Resources */,
 				59A59EC9221D5E9E0008A1C1 /* V distacco da polistirolo lento TRIGGER.wav in Resources */,
 				59A59EBB221D5E9E0008A1C1 /* V pendola tac TRIGGER.wav in Resources */,
+				59A59ED8221D68A70008A1C1 /* none.wav in Resources */,
 				59B1906A221C5E820073C28D /* 1 Beep low compressed bounce.aif in Resources */,
 				59B1906B221C5E820073C28D /* 2 bird market bounce.aif in Resources */,
 				59A59EC2221D5E9E0008A1C1 /* P lento su plastica 2 stretch.wav in Resources */,
@@ -430,10 +416,7 @@
 				59A59EC8221D5E9E0008A1C1 /* P lento polistirolo 2 stretch.aif in Resources */,
 				59B1906E221C5E820073C28D /* 5 Traffic bounce.aif in Resources */,
 				59A59EAD221D5E9E0008A1C1 /* P_2 acuto stoppato 3 note TRIGGER.wav in Resources */,
-				59A59EAF221D5E9E0008A1C1 /* V_2 acuto stoppato 3 note TRIGGER.wav in Resources */,
 				59A59ED5221D5E9E0008A1C1 /* V_1 woodblock 2 TRIGGER.aif in Resources */,
-				59A59EBA221D5E9E0008A1C1 /* P inhale 2 stretch.aif in Resources */,
-				59A59ECD221D5E9E0008A1C1 /* V superball piccola 2.wav in Resources */,
 				59A59ED3221D5E9E0008A1C1 /* V exhale 1 stretch.aif in Resources */,
 				59A59ED2221D5E9E0008A1C1 /* V_2 acuto stoppato 1 nota TRIGGER.wav in Resources */,
 				59A59EBF221D5E9E0008A1C1 /* P_1 acuto stoppato 4 note TRIGGER.wav in Resources */,
@@ -447,21 +430,18 @@
 				59A59ED1221D5E9E0008A1C1 /* P_2 acuto stoppato 1 nota TRIGGER.wav in Resources */,
 				59A59ECC221D5E9E0008A1C1 /* P righello verticale la.wav in Resources */,
 				59A59EB5221D5E9E0008A1C1 /* P_2 woodblock 2 TRIGGER.aif in Resources */,
-				59A59EB3221D5E9E0008A1C1 /* P_1 woodblock 1 TRIGGER.aif in Resources */,
 				59A59ED0221D5E9E0008A1C1 /* V_2 acciaccatura + battuto cluster 2 TRIGGER.wav in Resources */,
 				59A59ED4221D5E9E0008A1C1 /* P_1 woodblock 1 TRIGGER.aif in Resources */,
 				59A59ED6221D5E9E0008A1C1 /* P inhale 2 stretch.aif in Resources */,
 				59A59EC3221D5E9E0008A1C1 /* V thump 1 TRIGGER.wav in Resources */,
 				5956B7972213382000BE9235 /* Assets.xcassets in Resources */,
 				59A59EB4221D5E9E0008A1C1 /* P_3 woodblock 3 TRIGGER.aif in Resources */,
-				59A59EBD221D5E9E0008A1C1 /* P_2 acuto stoppato 3 note TRIGGER.wav in Resources */,
 				59A59EC1221D5E9E0008A1C1 /* V lento su plastica 1 stretch.wav in Resources */,
 				59A59ECF221D5E9E0008A1C1 /* V_1 acciaccatura + battuto cluster 1 TRIGGER.wav in Resources */,
 				595B5BD8221712D300B2C514 /* multiphonic5.wav in Resources */,
 				59A59EB1221D5E9E0008A1C1 /* V_4 woodblock 4 TRIGGER.aif in Resources */,
 				59A59EBC221D5E9E0008A1C1 /* P pendola tic TRIGGER.wav in Resources */,
 				595B5BD9221712D300B2C514 /* multiphonic8.wav in Resources */,
-				59A59EB2221D5E9E0008A1C1 /* V exhale 1 stretch.aif in Resources */,
 				595B5BD7221712D300B2C514 /* multiphonic7.wav in Resources */,
 				59A59EC7221D5E9E0008A1C1 /* P distacco da polistirolo lento TRIGGER.wav in Resources */,
 				59A59EB7221D5E9E0008A1C1 /* V_2 woodblock 2 TRIGGER.aif in Resources */,
