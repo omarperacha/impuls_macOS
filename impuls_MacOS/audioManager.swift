@@ -197,11 +197,14 @@ class User {
     
     let colBank3 = ["P superball grande 1.wav", "none.wav", "none.wav", "none.wav", "none.wav", "V superball piccola 2.wav", "none.wav", "none.wav", "none.wav", "none.wav"]
     
-    let colBank4 = ["1 woodblock 2 TRIGGER.aif", "2 acuto stoppato 1 nota TRIGGER.wav", "3 acuto stoppato 1 nota TRIGGER.wav", "4 woodblock 3 TRIGGER.aif", "5 woodblock 1 TRIGGER.aif", "6 acuto stoppato 1 nota TRIGGER.wav", "7 acuto stoppato 1 nota TRIGGER.wav", "8 woodblock 4 TRIGGER.aif", "PA_1pendola tac TRIGGER.wav"]
+    let colBank4 = ["P righello verticale la.wav", "none.wav", "none.wav", "none.wav", "none.wav",
+                    "V superball piccola 2.wav", "V_1 acciaccatura + battuto cluster 1 TRIGGER.wav", "V_2 acciaccatura + battuto cluster 2 TRIGGER.wav", "V_3 acciaccatura + battuto la f TRIGGER.wav", "V_4 acciaccatura + battuto la p TRIGGER.wav"]
     
-    let colBank5 = ["1 acuto stoppato 3 note TRIGGER.wav", "2 acuto stoppato 1 nota TRIGGER.wav", "3 acuto stoppato 1 nota TRIGGER.wav", "4 acuto stoppato 3 note TRIGGER.wav", "5 acuto stoppato 3 note TRIGGER.wav", "6 acuto stoppato 1 nota TRIGGER.wav", "7 acuto stoppato 1 nota TRIGGER.wav", "8 acuto stoppato 3 note TRIGGER.wav", "none.wav"]
+    let colBank5 = ["P inhale 2 stretch.aif", "P_1 woodblock 1 TRIGGER.aif", "P_2 woodblock 2 TRIGGER.aif","P_3 woodblock 3 TRIGGER.aif","P_4 woodblock 4 TRIGGER.aif",
+                    "V exhale 1 stretch.aif", "V_1 woodblock 1 TRIGGER.aif", "V_2 woodblock 2 TRIGGER.aif","V_3 woodblock 3 TRIGGER.aif","V_4 woodblock 4 TRIGGER.aif"]
     
-    let colBank6 = ["1 acuto stoppato 3 note TRIGGER.wav", "2 acuto stoppato 4 note TRIGGER.wav", "3 acuto stoppato 4 note TRIGGER.wav", "4 acuto stoppato 3 note TRIGGER.wav", "5 acuto stoppato 3 note TRIGGER.wav", "6 acuto stoppato 4 note TRIGGER.wav", "7 acuto stoppato 4 note TRIGGER.wav", "8 acuto stoppato 3 note TRIGGER.wav", "PA pioggia di aghi.wav"]
+    let colBank6 = ["P inhale 2 stretch.aif", "P_1 woodblock 1 TRIGGER.aif", "P_2 acuto stoppato 1 nota TRIGGER.wav", "P_1 woodblock 1 TRIGGER.aif", "P_2 acuto stoppato 1 nota TRIGGER.wav",
+                     "V exhale 1 stretch.aif", "V_1 woodblock 2 TRIGGER.aif", "V_2 acuto stoppato 1 nota TRIGGER.wav", "V_1 woodblock 2 TRIGGER.aif", "V_2 acuto stoppato 1 nota TRIGGER.wav"]
     
     let colBank7 = ["1 pendola tac TRIGGER.wav", "3 pendola tac TRIGGER.wav", "2 pendola tic TRIGGER.wav", "4 pendola tic TRIGGER.wav", "5 pendola tac TRIGGER.wav", "7 pendola tac TRIGGER.wav", "6 pendola tic TRIGGER.wav", "8 pendola tic TRIGGER.wav", "9 righello pendolo cresc TRIGGER.wav"]
     
@@ -529,6 +532,12 @@ class User {
             do {try synth.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
         } else if idx == 1 {
             do {try synth2.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
+        } else if idx == 2 {
+            do {try synth3.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
+        } else if idx == 3 {
+            do {try synth4.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
+        } else if idx == 4 {
+            do {try synth5.play(noteNumber: 60, velocity: 127)} catch {print(error.localizedDescription)}
         }
     }
     
