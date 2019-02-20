@@ -22,7 +22,7 @@ class AudioManager {
     
     var config = "Column"
     
-    let configDict = ["Sax":8, "Column": 3, "Outdoor": 5]
+    let configDict = ["Sax":8, "Column": 5, "Outdoor": 5]
     
     let usernames = ["Omar Peracha’s iPhone", "iPhone von Viva", "iPhone",  "iPhone de Isandro Ojeda-García", "User5"]
     
@@ -170,6 +170,8 @@ class User {
     var synth = AKAppleSampler()
     var synth2 = AKAppleSampler()
     var synth3 = AKAppleSampler()
+    var synth4 = AKAppleSampler()
+    var synth5 = AKAppleSampler()
     var samplers = [ImpulsWaveTable]()
     var distanceThresh = 0.4
     var currentBank = 1
@@ -177,6 +179,8 @@ class User {
     var mixer1 = AKMixer()
     var mixer2 = AKMixer()
     var mixer3 = AKMixer()
+    var mixer4 = AKMixer()
+    var mixer5 = AKMixer()
     var masterMixer = AKMixer()
     
     var pan = AKPanner()
@@ -185,13 +189,13 @@ class User {
     
     let saxSamples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
     
-    let colBank1 = [
-                    "1 thump 1 TRIGGER.wav",
-                    "2 lento su plastica 1 stretch.wav", "3 bump TRIGGER.wav", "4 lento su plastica 2 stretch.wav", "5 rapido su plastica 1 TRIGGER.wav", "none.wav", "none.wav", "8 rapido su plastica 2 TRIGGER.wav", "9 thump reverb TRIGGER.aif"]
+    let colBank1 = ["P lento su plastica 2 stretch.wav", "P bump TRIGGER.wav", "P bump TRIGGER.wav", "P bump TRIGGER.wav", "P bump TRIGGER.wav",
+                    "V lento su plastica 1 stretch.wav", "V thump 1 TRIGGER.wav", "V thump 1 TRIGGER.wav", "V thump 1 TRIGGER.wav", "V thump 1 TRIGGER.wav"]
     
-    let colBank2 = ["1 lento polistirolo 1 stretch.wav", "2 distacco da polistirolo lento TRIGGER.wav", "3 lento polistirolo 2 stretch.wav", "4 distacco da polistirolo lento TRIGGER.wav", "5 superball grande 1.wav", "none.wav", "none.wav", "8 superball piccola 2.wav", "9 armonico grave multifonico TRIGGER.wav"]
+    let colBank2 = ["P lento polistirolo 2 stretch.wav", "P distacco da polistirolo lento TRIGGER.wav", "P distacco da polistirolo lento TRIGGER.wav", "P distacco da polistirolo lento TRIGGER.wav", "P distacco da polistirolo lento TRIGGER.wav",
+                    "V lento polistirolo 1 stretch.wav", "V distacco da polistirolo lento TRIGGER.wav", "V distacco da polistirolo lento TRIGGER.wav", "V distacco da polistirolo lento TRIGGER.wav", "V distacco da polistirolo lento TRIGGER.wav"]
     
-    let colBank3 = ["1 righello verticale la.wav", "none.wav", "3_1 acciaccatura + battuto cluster 1 TRIGGER.wav", "4_1 acciaccatura + battuto la f TRIGGER.wav", "5 superball grande 1.wav", "none.wav", "none.wav", "8 superball piccola 2.wav", "none.wav"]
+    let colBank3 = ["P superball grande 1.wav", "none.wav", "none.wav", "none.wav", "none.wav", "V superball piccola 2.wav", "none.wav", "none.wav", "none.wav", "none.wav"]
     
     let colBank4 = ["1 woodblock 2 TRIGGER.aif", "2 acuto stoppato 1 nota TRIGGER.wav", "3 acuto stoppato 1 nota TRIGGER.wav", "4 woodblock 3 TRIGGER.aif", "5 woodblock 1 TRIGGER.aif", "6 acuto stoppato 1 nota TRIGGER.wav", "7 acuto stoppato 1 nota TRIGGER.wav", "8 woodblock 4 TRIGGER.aif", "PA_1pendola tac TRIGGER.wav"]
     
@@ -220,6 +224,8 @@ class User {
             mixer1 >>> masterMixer
             mixer2 >>> masterMixer
             mixer3 >>> masterMixer
+            mixer4 >>> masterMixer
+            mixer5 >>> masterMixer
         } else if conductor.config == "Outdoor" {
             mixer1 >>> conductor.mixer
         }
@@ -258,6 +264,10 @@ class User {
                     do {try synth2.loadAudioFile(file)} catch {print("000_ loading error")}
                 } else if i == 2 {
                     do {try synth3.loadAudioFile(file)} catch {print("000_ loading error")}
+                }  else if i == 3 {
+                    do {try synth4.loadAudioFile(file)} catch {print("000_ loading error")}
+                }  else if i == 4 {
+                    do {try synth5.loadAudioFile(file)} catch {print("000_ loading error")}
                 }
             } else {
                 samplers[i].loopEnabled = true
@@ -291,7 +301,21 @@ class User {
                         samplers[i] >>> mixer3
                         samplers[i].play()
                     } else {
-                        synth3 >>> mixer2
+                        synth3 >>> mixer3
+                    }
+                } else if i == 3 {
+                    if !samplers[i].oneShot {
+                        samplers[i] >>> mixer4
+                        samplers[i].play()
+                    } else {
+                        synth4 >>> mixer4
+                    }
+                } else if i == 4 {
+                    if !samplers[i].oneShot {
+                        samplers[i] >>> mixer5
+                        samplers[i].play()
+                    } else {
+                        synth5 >>> mixer5
                     }
                 }
             } else if conductor.config == "Outdoor" {
@@ -333,10 +357,10 @@ class User {
         
         switch name {
         case conductor.usernames[0]:
-            samples = [colBank[0], colBank[1], colBank[2]]
+            samples = [colBank[0], colBank[1], colBank[2], colBank[3], colBank[4]]
             pan.pan = (1)
         case conductor.usernames[1]:
-            samples = [colBank[3], colBank[4], colBank[5]]
+            samples = [colBank[5], colBank[6], colBank[7], colBank[8], colBank[9]]
             pan.pan = (1)
         case conductor.usernames[2]:
             samples = [colBank[4], colBank[5]]
@@ -402,6 +426,10 @@ class User {
                     do {try synth2.loadAudioFile(file)} catch {print("000_ loading error")}
                 } else if i == 2 {
                 do {try synth3.loadAudioFile(file)} catch {print("000_ loading error")}
+                } else if i == 3 {
+                do {try synth4.loadAudioFile(file)} catch {print("000_ loading error")}
+                } else if i == 4 {
+                do {try synth5.loadAudioFile(file)} catch {print("000_ loading error")}
                 }
             } else {
                 samplers[i].loopEnabled = true
@@ -428,7 +456,21 @@ class User {
                     samplers[i] >>> mixer3
                     samplers[i].play()
                 } else {
-                    synth3 >>> mixer2
+                    synth3 >>> mixer3
+                }
+            } else if i == 3 {
+                if !samplers[i].oneShot {
+                    samplers[i] >>> mixer4
+                    samplers[i].play()
+                } else {
+                    synth4 >>> mixer4
+                }
+            } else if i == 4 {
+                if !samplers[i].oneShot {
+                    samplers[i] >>> mixer5
+                    samplers[i].play()
+                } else {
+                    synth5 >>> mixer5
                 }
             }
             
